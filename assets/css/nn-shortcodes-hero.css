@@ -1,0 +1,9 @@
+/**
+ * NN Hero shortcode — loaded only when [nn_hero] is on the page.
+ */
+
+.nn-hero__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
