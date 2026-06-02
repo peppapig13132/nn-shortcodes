@@ -47,14 +47,6 @@ class NN_Assets {
 			NN_SHORTCODES_VERSION
 		);
 
-		wp_register_script(
-			'nn-shortcodes',
-			NN_SHORTCODES_URL . 'assets/js/nn-shortcodes.js',
-			array(),
-			NN_SHORTCODES_VERSION,
-			true
-		);
-
 		wp_register_style(
 			'nn-shortcodes-preheading',
 			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-preheading.css',
@@ -96,13 +88,6 @@ class NN_Assets {
 		if ( ! empty( $assets['styles'] ) ) {
 			foreach ( (array) $assets['styles'] as $handle ) {
 				wp_enqueue_style( $handle );
-			}
-		}
-
-		if ( ! empty( $assets['scripts'] ) ) {
-			wp_enqueue_script( 'nn-shortcodes' );
-			foreach ( (array) $assets['scripts'] as $handle ) {
-				wp_enqueue_script( $handle );
 			}
 		}
 	}

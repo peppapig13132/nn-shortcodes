@@ -1,9 +1,7 @@
 /**
- * NN Shortcodes — shared base styles
- * All selectors use the nn- prefix (BEM).
+ * NN Shortcodes — design tokens (nn- prefix).
  */
 
-/* Design tokens (scoped, nn-prefixed) */
 :root {
 	--nn-color-primary: #050505;
 	--nn-color-green: #277d59;
@@ -19,22 +17,4 @@
 
 	--nn-font-heading: "Onest", system-ui, -apple-system, sans-serif;
 	--nn-font-body: "Onest", system-ui, -apple-system, sans-serif;
-
-	--nn-container-max: 1180px;
-	--nn-radius: 14px;
-	--nn-radius-cta: 30px;
-	--nn-shadow-sm: 0 1px 3px rgba(5, 5, 5, 0.05);
-	--nn-shadow-md: 0 6px 14px rgba(5, 5, 5, 0.04), 0 18px 40px rgba(5, 5, 5, 0.07);
-}
-
-/* Layout utilities */
-.nn-container {
-	width: 100%;
-	max-width: var(--nn-container-max, 1180px);
-	margin-inline: auto;
-	padding-inline: var(--nn-container-gutter, 1.5rem);
-}
-
-.nn-section {
-	padding-block: var(--nn-section-spacing, 4rem);
 }

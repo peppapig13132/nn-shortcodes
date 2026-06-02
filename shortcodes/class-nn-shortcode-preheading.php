@@ -1,8 +1,6 @@
 <?php
 /**
- * Example:
- * [nn-preheading text="PPC Management + Data Intelligence"]
- * [nn-preheading]PPC Management + Data Intelligence[/nn-preheading]
+ * Example: [nn-preheading text="PPC Management + Data Intelligence"]
  *
  * @package NN_Shortcodes
  */
