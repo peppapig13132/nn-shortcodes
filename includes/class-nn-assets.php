@@ -56,8 +56,8 @@ class NN_Assets {
 		);
 
 		wp_register_style(
-			'nn-shortcodes-hero',
-			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-hero.css',
+			'nn-shortcodes-preheading',
+			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-preheading.css',
 			array( 'nn-shortcodes' ),
 			NN_SHORTCODES_VERSION
 		);

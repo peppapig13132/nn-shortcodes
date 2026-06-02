@@ -1,6 +1,6 @@
 # NN Shortcodes
 
-WordPress plugin providing custom shortcodes and section blocks for the NN Partners website.
+WordPress plugin providing custom shortcodes and section blocks for the [NN Partners](https://nn.partners) website.
 
 ## Installation
 
@@ -8,15 +8,19 @@ WordPress plugin providing custom shortcodes and section blocks for the NN Partn
 2. Activate **NN Shortcodes** in the WordPress admin.
 3. Use shortcodes in pages, posts, or block Shortcode widget.
 
-## Example
-
-```
-[nn_hero title="Welcome" subtitle="Partners in growth" image="42" variant="dark"]
-```
-
 ## Documentation
 
 See [CONVENTIONS.md](CONVENTIONS.md) for folder structure, BEM/`nn-` CSS rules, and how to add new shortcodes.
+
+## Shortcodes
+
+### Preheading
+
+Use this above a heading to render a short preheading line with a leading dash/line.
+
+```text
+[nn-preheading text="PPC Management + Data Intelligence"]
+```
 
 ## Requirements
 
