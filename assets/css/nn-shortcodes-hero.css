@@ -1,0 +1,85 @@
+/**
+ * NN Hero — orbiting icons around center chart.
+ */
+
+.nn-hero {
+	--nn-hero-chart-size: 29.375rem;
+	--nn-hero-icon-size: 3.75rem;
+	/* Chart outline + half icon size so icon centers sit outside the chart rim. */
+	--nn-hero-orbit-radius: calc(
+		var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
+	);
+	/* Stage fits chart plus full icon orbit without clipping. */
+	--nn-hero-stage-size: max(
+		calc(var(--nn-hero-chart-size) + var(--nn-hero-icon-size) * 2),
+		min(92vw, 36.875rem)
+	);
+
+	width: var(--nn-hero-stage-size);
+	margin-inline: auto;
+}
+
+.nn-hero__stage {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1;
+}
+
+.nn-hero__chart {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: var(--nn-hero-chart-size);
+	height: var(--nn-hero-chart-size);
+	max-width: 29.375rem;
+	max-height: 29.375rem;
+	object-fit: contain;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.nn-hero__orbit-track {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	transform-origin: 50% 50%;
+	will-change: transform;
+}
+
+.nn-hero__orbit-item {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0;
+	height: 0;
+	transform: rotate(var(--angle));
+}
+
+.nn-hero__orbit-positioner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: var(--nn-hero-icon-size);
+	height: var(--nn-hero-icon-size);
+	transform: translate(-50%, calc(-1 * var(--nn-hero-orbit-radius)));
+	transform-origin: 50% 50%;
+	will-change: transform;
+}
+
+.nn-hero__orbit-icon {
+	display: block;
+	width: 3.75rem;
+	height: 3.75rem;
+	max-width: 3.75rem;
+	max-height: 3.75rem;
+	object-fit: contain;
+	filter: drop-shadow(0 4px 12px rgb(0 0 0 / 0.12));
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero__orbit-track,
+	.nn-hero__orbit-icon {
+		animation: none !important;
+	}
+}

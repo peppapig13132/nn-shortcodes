@@ -53,6 +53,29 @@ class NN_Assets {
 			array( 'nn-shortcodes' ),
 			NN_SHORTCODES_VERSION
 		);
+
+		wp_register_style(
+			'nn-shortcodes-hero',
+			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-hero.css',
+			array( 'nn-shortcodes' ),
+			NN_SHORTCODES_VERSION
+		);
+
+		wp_register_script(
+			'gsap',
+			'https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js',
+			array(),
+			'3.12.7',
+			true
+		);
+
+		wp_register_script(
+			'nn-shortcodes-hero',
+			NN_SHORTCODES_URL . 'assets/js/nn-shortcodes-hero.js',
+			array( 'gsap' ),
+			NN_SHORTCODES_VERSION,
+			true
+		);
 	}
 
 	/**
@@ -88,6 +111,12 @@ class NN_Assets {
 		if ( ! empty( $assets['styles'] ) ) {
 			foreach ( (array) $assets['styles'] as $handle ) {
 				wp_enqueue_style( $handle );
+			}
+		}
+
+		if ( ! empty( $assets['scripts'] ) ) {
+			foreach ( (array) $assets['scripts'] as $handle ) {
+				wp_enqueue_script( $handle );
 			}
 		}
 	}

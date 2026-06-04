@@ -66,3 +66,99 @@ function nn_block_classes( $block, $extra = '' ) {
 
 	return esc_attr( implode( ' ', array_unique( $classes ) ) );
 }
+
+/**
+ * Resolve a media library attachment ID or image URL for shortcode attributes.
+ *
+ * @param string $value Attachment ID or absolute URL.
+ * @return array{id: int, url: string, alt: string, width: int, height: int}|null
+ */
+function nn_resolve_media( $value ) {
+	$value = trim( (string) $value );
+
+	if ( '' === $value ) {
+		return null;
+	}
+
+	if ( ctype_digit( $value ) ) {
+		$id  = (int) $value;
+		$url = wp_get_attachment_image_url( $id, 'full' );
+
+		if ( ! $url ) {
+			return null;
+		}
+
+		$meta = wp_get_attachment_metadata( $id );
+
+		return array(
+			'id'     => $id,
+			'url'    => $url,
+			'alt'    => (string) get_post_meta( $id, '_wp_attachment_image_alt', true ),
+			'width'  => isset( $meta['width'] ) ? (int) $meta['width'] : 0,
+			'height' => isset( $meta['height'] ) ? (int) $meta['height'] : 0,
+		);
+	}
+
+	$url = esc_url_raw( $value );
+
+	if ( ! $url ) {
+		return null;
+	}
+
+	return array(
+		'id'     => 0,
+		'url'    => $url,
+		'alt'    => '',
+		'width'  => 0,
+		'height' => 0,
+	);
+}
+
+/**
+ * Render an image from nn_resolve_media() output.
+ *
+ * @param array{id: int, url: string, alt: string, width: int, height: int}|null $image   Resolved image data.
+ * @param string                                                                 $class   CSS class for the img element.
+ * @param string                                                                 $size    Attachment image size.
+ */
+function nn_render_media_image( $image, $class = '', $size = 'full' ) {
+	if ( empty( $image ) || empty( $image['url'] ) ) {
+		return;
+	}
+
+	$attrs = array(
+		'class'    => $class,
+		'decoding' => 'async',
+	);
+
+	if ( ! empty( $image['id'] ) ) {
+		echo wp_get_attachment_image( (int) $image['id'], $size, false, $attrs );
+		return;
+	}
+
+	$attr_string = '';
+	foreach ( $attrs as $key => $value ) {
+		if ( '' !== $value ) {
+			$attr_string .= sprintf( ' %s="%s"', esc_attr( $key ), esc_attr( $value ) );
+		}
+	}
+
+	if ( ! empty( $image['width'] ) && ! empty( $image['height'] ) ) {
+		printf(
+			'<img src="%1$s" alt="%2$s" width="%3$d" height="%4$d"%5$s>',
+			esc_url( $image['url'] ),
+			esc_attr( $image['alt'] ),
+			(int) $image['width'],
+			(int) $image['height'],
+			$attr_string
+		);
+		return;
+	}
+
+	printf(
+		'<img src="%1$s" alt="%2$s"%3$s>',
+		esc_url( $image['url'] ),
+		esc_attr( $image['alt'] ),
+		$attr_string
+	);
+}

@@ -33,7 +33,7 @@ nn-shortcodes/
 1. Create `shortcodes/class-nn-shortcode-{name}.php` extending `NN_Shortcode`.
 2. Create `templates/shortcodes/{name}.php`.
 3. Optionally add `assets/css/nn-shortcodes-{name}.css` and register the handle in `assets()`.
-4. Use in content: `[nn_{name} attr="value"]`.
+4. Use in content: `[nn-{name} attr="value"]`.
 
 The registry auto-loads every `class-nn-shortcode-*.php` file on `init`.
 
@@ -43,10 +43,10 @@ The registry auto-loads every `class-nn-shortcode-*.php` file on `init`.
 |-------------|----------------------|----------------|
 | PHP class   | `NN_Shortcode_{Name}`| `NN_Shortcode_Hero` |
 | File        | `class-nn-shortcode-{name}.php` | `class-nn-shortcode-hero.php` |
-| Tag         | `nn_{name}`          | `[nn_hero]`    |
+| Tag         | `nn-{name}`          | `[nn-hero]`    |
 | CSS block   | `nn-{name}`          | `.nn-hero`     |
 
-Use **snake_case** for shortcode tags (WordPress convention). Use **kebab-case** for CSS (HTML convention).
+Use **kebab-case** with the **`nn-`** prefix for shortcode tags (same as CSS blocks). Tags and BEM blocks align: `[nn-hero]` → `.nn-hero`.
 
 ## CSS class naming (BEM + `nn-` prefix)
 
