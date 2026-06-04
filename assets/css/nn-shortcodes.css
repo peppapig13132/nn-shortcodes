@@ -1,43 +1,20 @@
 /**
- * NN Shortcodes — shared base styles
- * All selectors use the nn- prefix (BEM).
+ * NN Shortcodes — design tokens (nn- prefix).
  */
 
-/* Layout utilities */
-.nn-container {
-	width: 100%;
-	max-width: var(--nn-container-max, 1200px);
-	margin-inline: auto;
-	padding-inline: var(--nn-container-gutter, 1.5rem);
-}
+:root {
+	--nn-color-primary: #050505;
+	--nn-color-green: #277d59;
+	--nn-color-green-dark: #1c593f;
+	--nn-color-green-light: #30996d;
+	--nn-color-accent: #f2b949;
+	--nn-color-bg: #ffffff;
+	--nn-color-bg-alt: #eff4f1;
+	--nn-color-text: #050505;
+	--nn-color-text-light: #7f868d;
+	--nn-color-on-dark: #ffffff;
+	--nn-color-border: #e6e8ea;
 
-.nn-section {
-	padding-block: var(--nn-section-spacing, 4rem);
-}
-
-/* Example hero block — customize per design */
-.nn-hero {
-	position: relative;
-}
-
-.nn-hero__inner {
-	display: grid;
-	gap: 1.5rem;
-}
-
-.nn-hero__title {
-	margin: 0;
-}
-
-.nn-hero__subtitle {
-	margin: 0;
-}
-
-.nn-hero--dark {
-	color: #fff;
-	background-color: #111;
-}
-
-.nn-hero--compact {
-	padding-block: 2rem;
+	--nn-font-heading: "Onest", system-ui, -apple-system, sans-serif;
+	--nn-font-body: "Onest", system-ui, -apple-system, sans-serif;
 }

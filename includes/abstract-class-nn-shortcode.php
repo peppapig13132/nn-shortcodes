@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 abstract class NN_Shortcode {
 
 	/**
-	 * Shortcode tag without brackets, e.g. "nn_hero".
+	 * Shortcode tag without brackets, e.g. "nn-hero".
 	 *
 	 * @return string
 	 */
@@ -49,7 +49,7 @@ abstract class NN_Shortcode {
 	 * @return string
 	 */
 	public function block_class() {
-		return str_replace( '_', '-', $this->tag() );
+		return $this->tag();
 	}
 
 	/**

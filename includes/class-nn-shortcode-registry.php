@@ -67,9 +67,17 @@ class NN_Shortcode_Registry {
 	 */
 	private function class_name_from_file( $file ) {
 		$basename = basename( $file, '.php' );
-		$parts    = explode( '-', $basename );
-		$parts    = array_map( 'ucfirst', $parts );
+		$prefix   = 'class-nn-shortcode-';
 
+		if ( 0 === strpos( $basename, $prefix ) ) {
+			$slug = substr( $basename, strlen( $prefix ) );
+			$slug = str_replace( '-', ' ', $slug );
+			$slug = str_replace( ' ', '_', ucwords( $slug ) );
+			return 'NN_Shortcode_' . $slug;
+		}
+
+		$parts = explode( '-', $basename );
+		$parts = array_map( 'ucfirst', $parts );
 		return implode( '_', $parts );
 	}
 

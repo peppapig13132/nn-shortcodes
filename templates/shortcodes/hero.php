@@ -1,34 +1,45 @@
 <?php
 /**
- * Hero section template.
+ * Hero orbit template.
  *
  * @package NN_Shortcodes
  *
  * @var string $block
- * @var string $title
- * @var string $subtitle
- * @var string $image
- * @var string $variant
+ * @var bool   $has_content
+ * @var array|null $chart
+ * @var array<int, array{id: int, url: string, alt: string, width: int, height: int, angle: float}> $icons
+ * @var int    $duration
  * @var string $extra
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$modifier = $variant ? ' ' . nn_class( $block, '', $variant ) : '';
+if ( empty( $has_content ) ) {
+	return;
+}
 ?>
-<section class="<?php echo nn_block_classes( $block . $modifier, $extra ); ?>">
-	<div class="<?php echo nn_class( $block, 'inner' ); ?>">
-		<?php if ( $title ) : ?>
-			<h2 class="<?php echo nn_class( $block, 'title' ); ?>"><?php echo esc_html( $title ); ?></h2>
+<section
+	class="<?php echo nn_block_classes( $block, $extra ); ?>"
+	aria-label="<?php echo esc_attr__( 'Hero illustration', 'nn-shortcodes' ); ?>"
+	data-duration="<?php echo esc_attr( (string) $duration ); ?>"
+>
+	<div class="<?php echo nn_class( $block, 'stage' ); ?>">
+		<?php if ( ! empty( $chart ) ) : ?>
+			<?php nn_render_media_image( $chart, nn_class( $block, 'chart' ) ); ?>
 		<?php endif; ?>
 
-		<?php if ( $subtitle ) : ?>
-			<p class="<?php echo nn_class( $block, 'subtitle' ); ?>"><?php echo esc_html( $subtitle ); ?></p>
-		<?php endif; ?>
-
-		<?php if ( $image ) : ?>
-			<div class="<?php echo nn_class( $block, 'media' ); ?>">
-				<?php echo $image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image ?>
+		<?php if ( ! empty( $icons ) ) : ?>
+			<div class="<?php echo nn_class( $block, 'orbit-track' ); ?>" aria-hidden="true">
+				<?php foreach ( $icons as $icon ) : ?>
+					<div
+						class="<?php echo nn_class( $block, 'orbit-item' ); ?>"
+						style="<?php echo esc_attr( '--angle: ' . $icon['angle'] . 'deg' ); ?>"
+					>
+						<div class="<?php echo nn_class( $block, 'orbit-positioner' ); ?>">
+							<?php nn_render_media_image( $icon, nn_class( $block, 'orbit-icon' ) ); ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
 	</div>
