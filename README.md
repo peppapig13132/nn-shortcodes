@@ -41,6 +41,8 @@ Animated hero with a center chart and platform icons orbiting clockwise on top o
 
 To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.
 
+**Responsive / Elementor:** The hero uses `width: 100%` and scales chart, icons, and orbit together inside the parent column (container queries). Place the shortcode in a column wide enough for the animation; on mobile it shrinks proportionally up to the design maximum (470px chart, 60px icons).
+
 ## Requirements
 
 - WordPress 6.0+

@@ -1,28 +1,32 @@
 /**
  * NN Hero — orbiting icons around center chart.
+ *
+ * Scales with parent width (Elementor columns, mobile). Design max: 36.875rem stage.
  */
 
 .nn-hero {
-	--nn-hero-chart-size: 29.375rem;
-	--nn-hero-icon-size: 3.75rem;
-	/* Chart outline + half icon size so icon centers sit outside the chart rim. */
-	--nn-hero-orbit-radius: calc(
-		var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
-	);
-	/* Stage fits chart plus full icon orbit without clipping. */
-	--nn-hero-stage-size: max(
-		calc(var(--nn-hero-chart-size) + var(--nn-hero-icon-size) * 2),
-		min(92vw, 36.875rem)
-	);
+	/* Proportions at max size (chart 29.375rem + icons on 36.875rem stage). */
+	--nn-hero-chart-ratio: 79.661;
+	--nn-hero-icon-ratio: 10.169;
+	--nn-hero-orbit-ratio: 44.915;
 
-	width: var(--nn-hero-stage-size);
+	--nn-hero-chart-size: calc(var(--nn-hero-chart-ratio) * 1cqi);
+	--nn-hero-icon-size: calc(var(--nn-hero-icon-ratio) * 1cqi);
+	--nn-hero-orbit-radius: calc(var(--nn-hero-orbit-ratio) * 1cqi);
+
+	width: 100%;
+	max-width: 36.875rem;
+	min-width: 0;
 	margin-inline: auto;
+	container-type: inline-size;
+	container-name: nn-hero;
 }
 
 .nn-hero__stage {
 	position: relative;
 	width: 100%;
 	aspect-ratio: 1;
+	overflow: visible;
 }
 
 .nn-hero__chart {
@@ -45,6 +49,7 @@
 	z-index: 2;
 	transform-origin: 50% 50%;
 	will-change: transform;
+	overflow: visible;
 }
 
 .nn-hero__orbit-item {
@@ -69,12 +74,24 @@
 
 .nn-hero__orbit-icon {
 	display: block;
-	width: 3.75rem;
-	height: 3.75rem;
+	width: 100%;
+	height: 100%;
 	max-width: 3.75rem;
 	max-height: 3.75rem;
 	object-fit: contain;
 	filter: drop-shadow(0 4px 12px rgb(0 0 0 / 0.12));
+}
+
+/* Fallback when container queries are unavailable (rare). */
+@supports not (width: 1cqi) {
+	.nn-hero {
+		--nn-hero-chart-size: min(29.375rem, 80vw);
+		--nn-hero-icon-size: min(3.75rem, 10vw);
+		--nn-hero-orbit-radius: calc(
+			var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
+		);
+		max-width: min(36.875rem, 100vw);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
