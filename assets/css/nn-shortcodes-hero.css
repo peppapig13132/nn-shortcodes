@@ -1,27 +1,27 @@
 /**
  * NN Hero — orbiting icons around center chart.
  *
- * Scales with parent width (Elementor columns, mobile). Design box: 566×630px.
+ * Scales with parent width (Elementor columns, mobile). Design box: 566×725px.
  */
 
 .nn-hero {
 	/* Section aspect ratio (width × height). Override in Elementor if needed. */
 	--nn-hero-ratio-w: 566;
-	--nn-hero-ratio-h: 630;
+	--nn-hero-ratio-h: 725;
 	/* Proportions relative to section width (566px design). */
 	--nn-hero-chart-ratio: 83.039;
 	--nn-hero-icon-ratio: 10.6;
 	--nn-hero-orbit-ratio: 46.82;
 	/* Guy image width. */
-	--nn-hero-guy-ratio: 88;
-	/* Head top at blue guide (~42% of section width from top). */
-	--nn-hero-guy-head-top-ratio: 42;
+	--nn-hero-guy-ratio: 89;
+	/* Head top at blue guide (~40% of section width from top). */
+	--nn-hero-guy-head-top-ratio: 40;
 	/* Image top edge (derived from head position + rest-y). */
-	--nn-hero-guy-top-ratio: 48;
+	--nn-hero-guy-top-ratio: 47;
 	/* Horizontal anchor: shift left by 50% of image width. */
 	--nn-hero-guy-center-x: 50;
 	/* Final resting offset (percent of image height). */
-	--nn-hero-guy-rest-y: -14%;
+	--nn-hero-guy-rest-y: -13%;
 
 	--nn-hero-chart-size: calc(var(--nn-hero-chart-ratio) * 1cqi);
 	--nn-hero-icon-size: calc(var(--nn-hero-icon-ratio) * 1cqi);
@@ -113,7 +113,7 @@
 	top: var(--nn-hero-guy-top);
 	z-index: 3;
 	width: var(--nn-hero-guy-size);
-	max-width: 31.125rem;
+	max-width: 31.5rem;
 	height: auto;
 	object-fit: contain;
 	transform: translate(
@@ -139,8 +139,8 @@
 		--nn-hero-orbit-radius: calc(
 			var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
 		);
-		--nn-hero-guy-size: min(31.125rem, 82vw);
-		--nn-hero-guy-top: min(17rem, 48vw);
+		--nn-hero-guy-size: min(31.5rem, 84vw);
+		--nn-hero-guy-top: min(16.6rem, 47vw);
 		max-width: min(35.375rem, 100vw);
 	}
 }

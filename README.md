@@ -42,7 +42,7 @@ Animated hero with a center chart and platform icons orbiting clockwise on top o
 
 To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.
 
-**Responsive / Elementor:** The section `.nn-hero` uses a **566×630** aspect ratio (`--nn-hero-ratio-w` / `--nn-hero-ratio-h`), `overflow: hidden`, and container queries so chart, icons, and hero guy scale together in any column width. Override the ratio or `max-width` in custom CSS if a page needs a different box size.
+**Responsive / Elementor:** The section `.nn-hero` uses a **566×725** aspect ratio (`--nn-hero-ratio-w` / `--nn-hero-ratio-h`), `overflow: hidden`, and container queries so chart, icons, and hero guy scale together in any column width.
 
 ## Requirements
 

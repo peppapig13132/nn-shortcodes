@@ -87,7 +87,7 @@
     var guyCenterX =
       parseFloat(styles.getPropertyValue("--nn-hero-guy-center-x")) || 50;
     var guyRestY =
-      parseFloat(styles.getPropertyValue("--nn-hero-guy-rest-y")) || -14;
+      parseFloat(styles.getPropertyValue("--nn-hero-guy-rest-y")) || -13;
 
     function animateGuyEntrance() {
       if (prefersReducedMotion) {
