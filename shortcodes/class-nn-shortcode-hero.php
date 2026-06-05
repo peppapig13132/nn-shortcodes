@@ -3,7 +3,7 @@
  * Animated hero with center chart and orbiting icons.
  *
  * Example:
- * [nn-hero chart="123" icons="101,102,103,104,105,106,107,108,109,110"]
+ * [nn-hero chart="123" hero-guy="456" icons="101,102,103,104,105,106,107,108,109,110"]
  *
  * @package NN_Shortcodes
  */
@@ -22,6 +22,7 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 	protected function defaults() {
 		return array(
 			'chart'    => '',
+			'hero-guy' => '',
 			'icons'    => '',
 			'duration' => '28',
 			'class'    => '',
@@ -40,10 +41,11 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 	}
 
 	protected function prepare( $atts, $content = null ) {
-		$chart = nn_resolve_media( $atts['chart'] );
-		$icons = $this->parse_icons( $atts['icons'] );
+		$chart    = nn_resolve_media( $atts['chart'] );
+		$hero_guy = nn_resolve_media( $atts['hero-guy'] );
+		$icons    = $this->parse_icons( $atts['icons'] );
 
-		if ( ! $chart && empty( $icons ) ) {
+		if ( ! $chart && ! $hero_guy && empty( $icons ) ) {
 			return array(
 				'has_content' => false,
 			);
@@ -60,6 +62,7 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 		return array(
 			'has_content' => true,
 			'chart'       => $chart,
+			'hero_guy'    => $hero_guy,
 			'icons'       => $icons,
 			'duration'    => $duration,
 			'extra'       => $this->sanitize_classes( $atts['class'] ),

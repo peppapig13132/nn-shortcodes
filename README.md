@@ -29,19 +29,20 @@ Use this above a heading to render a short preheading line with a leading dash/l
 Animated hero with a center chart and platform icons orbiting clockwise on top of the chart. Pass **Media Library attachment IDs** or image URLs.
 
 ```text
-[nn-hero chart="123" icons="101,102,103,104,105,106,107,108,109,110"]
+[nn-hero chart="4434" hero-guy="4432" icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440"]
 ```
 
 | Attribute  | Description |
 |-----------|-------------|
 | `chart`   | Center chart image (attachment ID or URL) |
+| `hero-guy`| Foreground person image (attachment ID or URL); slides up on load |
 | `icons`   | Comma-separated list of orbiting icon IDs or URLs (60px / 3.75rem each) |
 | `duration`| Orbit speed in seconds (default `28`) |
 | `class`   | Extra `nn-*` utility classes |
 
 To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.
 
-**Responsive / Elementor:** The hero uses `width: 100%` and scales chart, icons, and orbit together inside the parent column (container queries). Place the shortcode in a column wide enough for the animation; on mobile it shrinks proportionally up to the design maximum (470px chart, 60px icons).
+**Responsive / Elementor:** The section `.nn-hero` uses a **566×630** aspect ratio (`--nn-hero-ratio-w` / `--nn-hero-ratio-h`), `overflow: hidden`, and container queries so chart, icons, and hero guy scale together in any column width. Override the ratio or `max-width` in custom CSS if a page needs a different box size.
 
 ## Requirements
 

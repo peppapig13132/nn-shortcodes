@@ -1,32 +1,57 @@
 /**
  * NN Hero — orbiting icons around center chart.
  *
- * Scales with parent width (Elementor columns, mobile). Design max: 36.875rem stage.
+ * Scales with parent width (Elementor columns, mobile). Design box: 566×630px.
  */
 
 .nn-hero {
-	/* Proportions at max size (chart 29.375rem + icons on 36.875rem stage). */
-	--nn-hero-chart-ratio: 79.661;
-	--nn-hero-icon-ratio: 10.169;
-	--nn-hero-orbit-ratio: 44.915;
+	/* Section aspect ratio (width × height). Override in Elementor if needed. */
+	--nn-hero-ratio-w: 566;
+	--nn-hero-ratio-h: 630;
+	/* Proportions relative to section width (566px design). */
+	--nn-hero-chart-ratio: 83.039;
+	--nn-hero-icon-ratio: 10.6;
+	--nn-hero-orbit-ratio: 46.82;
+	/* Guy image width. */
+	--nn-hero-guy-ratio: 88;
+	/* Head top at blue guide (~42% of section width from top). */
+	--nn-hero-guy-head-top-ratio: 42;
+	/* Image top edge (derived from head position + rest-y). */
+	--nn-hero-guy-top-ratio: 48;
+	/* Horizontal anchor: shift left by 50% of image width. */
+	--nn-hero-guy-center-x: 50;
+	/* Final resting offset (percent of image height). */
+	--nn-hero-guy-rest-y: -14%;
 
 	--nn-hero-chart-size: calc(var(--nn-hero-chart-ratio) * 1cqi);
 	--nn-hero-icon-size: calc(var(--nn-hero-icon-ratio) * 1cqi);
 	--nn-hero-orbit-radius: calc(var(--nn-hero-orbit-ratio) * 1cqi);
+	--nn-hero-guy-size: calc(var(--nn-hero-guy-ratio) * 1cqi);
+	--nn-hero-guy-top: calc(var(--nn-hero-guy-top-ratio) * 1cqi);
 
+	position: relative;
 	width: 100%;
-	max-width: 36.875rem;
+	max-width: 35.375rem;
 	min-width: 0;
+	aspect-ratio: var(--nn-hero-ratio-w) / var(--nn-hero-ratio-h);
 	margin-inline: auto;
+	overflow: hidden;
 	container-type: inline-size;
 	container-name: nn-hero;
 }
 
-.nn-hero__stage {
-	position: relative;
+.nn-hero__frame {
+	position: absolute;
+	inset: 0;
 	width: 100%;
-	aspect-ratio: 1;
-	overflow: visible;
+	height: 100%;
+}
+
+.nn-hero__stage {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .nn-hero__chart {
@@ -36,8 +61,8 @@
 	z-index: 1;
 	width: var(--nn-hero-chart-size);
 	height: var(--nn-hero-chart-size);
-	max-width: 29.375rem;
-	max-height: 29.375rem;
+	max-width: 28.1875rem;
+	max-height: 28.1875rem;
 	object-fit: contain;
 	transform: translate(-50%, -50%);
 	pointer-events: none;
@@ -82,15 +107,41 @@
 	filter: drop-shadow(0 4px 12px rgb(0 0 0 / 0.12));
 }
 
+.nn-hero__guy {
+	position: absolute;
+	left: 50%;
+	top: var(--nn-hero-guy-top);
+	z-index: 3;
+	width: var(--nn-hero-guy-size);
+	max-width: 31.125rem;
+	height: auto;
+	object-fit: contain;
+	transform: translate(
+		calc(var(--nn-hero-guy-center-x) * -1%),
+		var(--nn-hero-guy-rest-y)
+	);
+	pointer-events: none;
+}
+
+.nn-hero__guy.nn-hero__guy--animated,
+.nn-hero__guy.nn-hero__guy--no-motion {
+	transform: translate(
+		calc(var(--nn-hero-guy-center-x) * -1%),
+		var(--nn-hero-guy-rest-y)
+	);
+}
+
 /* Fallback when container queries are unavailable (rare). */
 @supports not (width: 1cqi) {
 	.nn-hero {
-		--nn-hero-chart-size: min(29.375rem, 80vw);
+		--nn-hero-chart-size: min(28.1875rem, 80vw);
 		--nn-hero-icon-size: min(3.75rem, 10vw);
 		--nn-hero-orbit-radius: calc(
 			var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
 		);
-		max-width: min(36.875rem, 100vw);
+		--nn-hero-guy-size: min(31.125rem, 82vw);
+		--nn-hero-guy-top: min(17rem, 48vw);
+		max-width: min(35.375rem, 100vw);
 	}
 }
 
@@ -98,5 +149,19 @@
 	.nn-hero__orbit-track,
 	.nn-hero__orbit-icon {
 		animation: none !important;
+	}
+
+	.nn-hero__guy {
+		transform: translate(
+			calc(var(--nn-hero-guy-center-x) * -1%),
+			var(--nn-hero-guy-rest-y)
+		) !important;
+	}
+
+	.nn-hero__guy.nn-hero__guy--no-motion {
+		transform: translate(
+			calc(var(--nn-hero-guy-center-x) * -1%),
+			var(--nn-hero-guy-rest-y)
+		) !important;
 	}
 }
