@@ -29,7 +29,7 @@ Use this above a heading to render a short preheading line with a leading dash/l
 Animated hero with a center chart and platform icons orbiting clockwise on top of the chart. Pass **Media Library attachment IDs** or image URLs.
 
 ```text
-[nn-hero chart="4434" hero-guy="4432" icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440"]
+[nn-hero chart="4434" hero-guy="4452" icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440"]
 ```
 
 | Attribute  | Description |
