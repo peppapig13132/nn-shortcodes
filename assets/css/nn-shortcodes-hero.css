@@ -12,12 +12,14 @@
 	--nn-hero-chart-ratio: 83.039;
 	--nn-hero-icon-ratio: 10.6;
 	--nn-hero-orbit-ratio: 46.82;
-	/* Guy image width. */
-	--nn-hero-guy-ratio: 89;
-	/* Head top at blue guide (~40% of section width from top). */
-	--nn-hero-guy-head-top-ratio: 40;
+	/* Shared vertical center for chart + orbit (lower = higher on screen). */
+	--nn-hero-center-y: 44%;
+	/* Guy image width (×1.15 scale vs 89). */
+	--nn-hero-guy-ratio: 102.35;
+	/* Head top at blue guide (~37% of section width from top). */
+	--nn-hero-guy-head-top-ratio: 37;
 	/* Image top edge (derived from head position + rest-y). */
-	--nn-hero-guy-top-ratio: 47;
+	--nn-hero-guy-top-ratio: 44;
 	/* Horizontal anchor: shift left by 50% of image width. */
 	--nn-hero-guy-center-x: 50;
 	/* Final resting offset (percent of image height). */
@@ -57,7 +59,7 @@
 .nn-hero__chart {
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: var(--nn-hero-center-y);
 	z-index: 1;
 	width: var(--nn-hero-chart-size);
 	height: var(--nn-hero-chart-size);
@@ -72,7 +74,7 @@
 	position: absolute;
 	inset: 0;
 	z-index: 2;
-	transform-origin: 50% 50%;
+	transform-origin: 50% var(--nn-hero-center-y);
 	will-change: transform;
 	overflow: visible;
 }
@@ -80,7 +82,7 @@
 .nn-hero__orbit-item {
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: var(--nn-hero-center-y);
 	width: 0;
 	height: 0;
 	transform: rotate(var(--angle));
@@ -113,7 +115,7 @@
 	top: var(--nn-hero-guy-top);
 	z-index: 3;
 	width: var(--nn-hero-guy-size);
-	max-width: 31.5rem;
+	max-width: 36.23rem;
 	height: auto;
 	object-fit: contain;
 	transform: translate(
@@ -139,8 +141,8 @@
 		--nn-hero-orbit-radius: calc(
 			var(--nn-hero-chart-size) / 2 + var(--nn-hero-icon-size) / 2
 		);
-		--nn-hero-guy-size: min(31.5rem, 84vw);
-		--nn-hero-guy-top: min(16.6rem, 47vw);
+		--nn-hero-guy-size: min(36.23rem, 97vw);
+		--nn-hero-guy-top: min(15.6rem, 44vw);
 		max-width: min(35.375rem, 100vw);
 	}
 }
