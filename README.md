@@ -35,9 +35,10 @@ Animated hero with a center chart and platform icons orbiting clockwise on top o
 | Attribute  | Description |
 |-----------|-------------|
 | `chart`   | Center chart image (attachment ID or URL) |
-| `hero-guy`| Foreground person image (attachment ID or URL); slides up on load |
+| `hero-guy`| Foreground person image (attachment ID or URL); slides up when the hero enters the viewport |
 | `icons`   | Comma-separated list of orbiting icon IDs or URLs (60px / 3.75rem each) |
 | `duration`| Orbit speed in seconds (default `28`) |
+| `guy-delay` | Seconds to wait after the hero is visible before the guy slides up (default `0.6`) |
 | `class`   | Extra `nn-*` utility classes |
 
 To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.

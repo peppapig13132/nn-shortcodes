@@ -25,6 +25,7 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 			'hero-guy' => '',
 			'icons'    => '',
 			'duration' => '28',
+			'guy-delay'=> '0.6',
 			'class'    => '',
 		);
 	}
@@ -51,7 +52,8 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 			);
 		}
 
-		$duration = max( 5, min( 120, (int) $atts['duration'] ) );
+		$duration  = max( 5, min( 120, (int) $atts['duration'] ) );
+		$guy_delay = max( 0, min( 10, (float) $atts['guy-delay'] ) );
 		$count    = count( $icons );
 		$step     = $count > 0 ? 360 / $count : 0;
 
@@ -65,6 +67,7 @@ class NN_Shortcode_Hero extends NN_Shortcode {
 			'hero_guy'    => $hero_guy,
 			'icons'       => $icons,
 			'duration'    => $duration,
+			'guy_delay'   => $guy_delay,
 			'extra'       => $this->sanitize_classes( $atts['class'] ),
 		);
 	}

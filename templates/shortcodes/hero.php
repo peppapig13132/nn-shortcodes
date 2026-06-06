@@ -10,6 +10,7 @@
  * @var array|null $hero_guy
  * @var array<int, array{id: int, url: string, alt: string, width: int, height: int, angle: float}> $icons
  * @var int    $duration
+ * @var float  $guy_delay
  * @var string $extra
  */
 
@@ -23,6 +24,9 @@ if ( empty( $has_content ) ) {
 	class="<?php echo nn_block_classes( $block, $extra ); ?>"
 	aria-label="<?php echo esc_attr__( 'Hero illustration', 'nn-shortcodes' ); ?>"
 	data-duration="<?php echo esc_attr( (string) $duration ); ?>"
+	<?php if ( ! empty( $hero_guy ) ) : ?>
+		data-guy-delay="<?php echo esc_attr( (string) $guy_delay ); ?>"
+	<?php endif; ?>
 >
 	<div class="<?php echo nn_class( $block, 'frame' ); ?>">
 		<div class="<?php echo nn_class( $block, 'stage' ); ?>">
