@@ -1,0 +1,205 @@
+/**
+ * NN Hero Conversion Tracking — matches conversion-tracking page .flow-mock design.
+ */
+
+.nn-hero-conversion-tracking {
+	--nn-ct-width: 514.89px;
+	--nn-ct-height: 324.42px;
+	--nn-ct-ratio: 514.89 / 324.42;
+	--nn-ct-bg: var(--nn-color-bg, #fff);
+	--nn-ct-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ct-border: var(--nn-color-border, #e6e8ea);
+	--nn-ct-primary: var(--nn-color-primary, #050505);
+	--nn-ct-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ct-green: var(--nn-color-green, #277d59);
+	--nn-ct-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ct-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ct-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+	--nn-ct-shadow-sm: 0 2px 6px rgb(5 5 5 / 0.05);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--nn-ct-width);
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-conversion-tracking *,
+.nn-hero-conversion-tracking *::before,
+.nn-hero-conversion-tracking *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-conversion-tracking .flow-mock {
+	display: flex !important;
+	flex-direction: column;
+	width: 100%;
+	max-width: var(--nn-ct-width);
+	max-height: var(--nn-ct-height);
+	aspect-ratio: var(--nn-ct-ratio);
+	min-height: 0;
+	background: var(--nn-ct-bg) !important;
+	border: 1px solid var(--nn-ct-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ct-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-conversion-tracking .flow-bar {
+	display: flex !important;
+	flex-shrink: 0;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ct-green-dark), var(--nn-ct-green-light)) !important;
+}
+
+.nn-hero-conversion-tracking .flow-bar span {
+	display: block !important;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+	flex-shrink: 0;
+}
+
+.nn-hero-conversion-tracking .flow-body {
+	display: flex !important;
+	flex: 1 1 auto;
+	flex-direction: row !important;
+	flex-wrap: nowrap;
+	align-items: center !important;
+	gap: 12px;
+	min-height: 0;
+	padding: 28px 22px 22px;
+	width: 100%;
+}
+
+.nn-hero-conversion-tracking .flow-node,
+.nn-hero-conversion-tracking .flow-hub {
+	display: block !important;
+	flex: 0 0 auto !important;
+	flex-shrink: 0 !important;
+	width: auto !important;
+	min-width: 5.75rem;
+	max-width: none !important;
+	height: auto !important;
+	min-height: 0 !important;
+	max-height: none !important;
+	margin: 0;
+	font-weight: 700 !important;
+	font-size: 0.86rem !important;
+	line-height: 1.35 !important;
+	text-align: center;
+	white-space: normal;
+	overflow: visible;
+}
+
+.nn-hero-conversion-tracking .flow-node {
+	background: var(--nn-ct-bg-alt) !important;
+	border: 1px solid var(--nn-ct-border);
+	border-radius: 10px;
+	padding: 16px 12px !important;
+	color: var(--nn-ct-primary) !important;
+}
+
+.nn-hero-conversion-tracking .flow-hub {
+	background: linear-gradient(
+		135deg,
+		var(--nn-ct-green-dark),
+		var(--nn-ct-green-light)
+	) !important;
+	color: #fff !important;
+	border: 0;
+	border-radius: 10px;
+	padding: 18px 12px !important;
+	box-shadow: var(--nn-ct-shadow-sm);
+}
+
+.nn-hero-conversion-tracking .flow-arrow {
+	display: block !important;
+	flex: 0 0 auto !important;
+	flex-shrink: 0 !important;
+	align-self: center !important;
+	width: auto !important;
+	height: auto !important;
+	margin: 0;
+	padding: 0;
+	color: var(--nn-ct-green) !important;
+	font-size: 1.4rem !important;
+	font-weight: 800 !important;
+	line-height: 1 !important;
+	background: none !important;
+}
+
+.nn-hero-conversion-tracking .flow-arrow::before,
+.nn-hero-conversion-tracking .flow-arrow::after {
+	content: none !important;
+	display: none !important;
+}
+
+.nn-hero-conversion-tracking .flow-dest {
+	display: flex !important;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 9px;
+	min-width: 0;
+}
+
+.nn-hero-conversion-tracking .fchip-static {
+	display: block !important;
+	background: var(--nn-ct-bg-alt) !important;
+	border: 1px solid var(--nn-ct-border);
+	border-radius: 7px;
+	padding: 5px 10px !important;
+	font-size: 0.82rem !important;
+	font-weight: 600 !important;
+	line-height: 1.25 !important;
+	color: var(--nn-ct-primary) !important;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.nn-hero-conversion-tracking .flow-cap {
+	display: block;
+	flex-shrink: 0;
+	font-size: 0.72rem !important;
+	line-height: 1.35 !important;
+	font-style: italic;
+	color: var(--nn-ct-text-light) !important;
+	text-align: center;
+	padding: 0 16px 14px;
+	margin: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+	.nn-hero-conversion-tracking .flow-mock {
+		aspect-ratio: auto;
+		max-height: none;
+		min-height: var(--nn-ct-height);
+	}
+
+	.nn-hero-conversion-tracking .flow-body {
+		flex-direction: column !important;
+		align-items: stretch !important;
+	}
+
+	.nn-hero-conversion-tracking .flow-node,
+	.nn-hero-conversion-tracking .flow-hub {
+		min-width: 0;
+		width: 100% !important;
+	}
+
+	.nn-hero-conversion-tracking .flow-arrow {
+		transform: rotate(90deg);
+		align-self: center !important;
+	}
+
+	.nn-hero-conversion-tracking .flow-dest {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+	}
+}

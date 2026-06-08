@@ -68,6 +68,13 @@ class NN_Assets {
 			NN_SHORTCODES_VERSION
 		);
 
+		wp_register_style(
+			'nn-shortcodes-hero-conversion-tracking',
+			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-hero-conversion-tracking.css',
+			array( 'nn-shortcodes' ),
+			NN_SHORTCODES_VERSION
+		);
+
 		wp_register_script(
 			'gsap',
 			'https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js',

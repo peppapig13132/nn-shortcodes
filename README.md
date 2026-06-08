@@ -89,6 +89,28 @@ Microsoft|27|4.6|win|↑ scale
 
 Numbers count from 0 when the block scrolls into view. Cost shows as `$44`, ROAS as `2.8x`.
 
+### Hero conversion-tracking data flow
+
+Illustrative server-side tracking diagram: source → GTM hub → destination platforms. Drop into Elementor via Shortcode widget.
+
+```text
+[nn-hero-conversion-tracking]
+```
+
+Custom labels (use `|` for line breaks inside a node; preserves `+`):
+
+```text
+[nn-hero-conversion-tracking source="Your Site|& App" hub="GTM +|Server-Side" destinations="GA4,Google Ads,Meta,Microsoft,BigQuery"]
+```
+
+| Attribute      | Description |
+|----------------|-------------|
+| `source`       | Left node label; `|` splits lines (default `Your Site|& App`) |
+| `hub`          | Center hub label; `|` splits lines (default `GTM +|Server-Side`) |
+| `destinations` | Comma-separated destination labels (default `GA4,Google Ads,Meta,Microsoft,BigQuery`) |
+| `caption`      | Footer note (default illustrative caption, auto-bracketed) |
+| `class`        | Extra `nn-*` utility classes |
+
 ## Requirements
 
 - WordPress 6.0+
