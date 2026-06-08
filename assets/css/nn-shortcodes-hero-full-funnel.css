@@ -1,0 +1,259 @@
+/**
+ * NN Hero Full Funnel — cross-channel dashboard mock.
+ * Design ratio: 514.89 × 367.97 (width × height).
+ */
+
+.nn-hero-full-funnel {
+	--nn-ff-width: 514.89px;
+	--nn-ff-height: 367.97px;
+	--nn-ff-ratio: 514.89 / 367.97;
+	--nn-ff-bg: var(--nn-color-bg, #fff);
+	--nn-ff-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ff-border: var(--nn-color-border, #e6e8ea);
+	--nn-ff-primary: var(--nn-color-primary, #050505);
+	--nn-ff-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ff-green: var(--nn-color-green, #277d59);
+	--nn-ff-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ff-green-light: var(--nn-color-green-light, #30996d);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--nn-ff-width);
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-full-funnel *,
+.nn-hero-full-funnel *::before,
+.nn-hero-full-funnel *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-full-funnel__mock {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	aspect-ratio: var(--nn-ff-ratio);
+	min-height: 0;
+	background: var(--nn-ff-bg);
+	border: 1px solid var(--nn-ff-border);
+	border-radius: 16px;
+	box-shadow: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+	overflow: hidden;
+}
+
+.nn-hero-full-funnel__bar {
+	display: flex !important;
+	flex-shrink: 0;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ff-green-dark), var(--nn-ff-green-light));
+}
+
+.nn-hero-full-funnel__bar span {
+	display: block !important;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+	flex-shrink: 0;
+}
+
+.nn-hero-full-funnel__body {
+	display: block;
+	flex: 1 1 auto;
+	flex-shrink: 1;
+	padding: 20px 22px 8px;
+	overflow: visible;
+}
+
+.nn-hero-full-funnel__heading {
+	display: flex !important;
+	align-items: flex-start;
+	gap: 8px;
+	flex-shrink: 0;
+	font-weight: 700 !important;
+	font-size: 0.88rem !important;
+	line-height: 1.4 !important;
+	color: var(--nn-ff-primary, #050505) !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	margin: 0 0 12px;
+	min-height: 2.5em;
+	position: relative;
+	z-index: 2;
+}
+
+.nn-hero-full-funnel__heading-text {
+	display: block !important;
+	flex: 1 1 auto;
+	min-width: 0;
+	width: auto;
+	max-width: 100%;
+	white-space: normal;
+	overflow: visible;
+	overflow-wrap: break-word;
+	word-break: normal;
+	color: inherit !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	line-height: inherit !important;
+}
+
+.nn-hero-full-funnel__dot {
+	display: block !important;
+	width: 8px;
+	height: 8px;
+	margin-top: 0.28em;
+	border-radius: 50%;
+	background: var(--nn-ff-green);
+	flex-shrink: 0;
+}
+
+.nn-hero-full-funnel__table {
+	display: table !important;
+	width: 100% !important;
+	max-width: 100%;
+	border-collapse: separate !important;
+	border-spacing: 0 6px !important;
+	margin: 0;
+	table-layout: fixed;
+}
+
+.nn-hero-full-funnel__table thead {
+	display: table-header-group !important;
+}
+
+.nn-hero-full-funnel__table tbody {
+	display: table-row-group !important;
+}
+
+.nn-hero-full-funnel__table tr {
+	display: table-row !important;
+}
+
+.nn-hero-full-funnel__table th,
+.nn-hero-full-funnel__table td {
+	display: table-cell !important;
+	vertical-align: middle;
+	border: 0;
+}
+
+.nn-hero-full-funnel__table th {
+	font-size: 0.62rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--nn-ff-text-light);
+	text-align: left;
+	padding: 0 10px 4px;
+	font-weight: 700;
+	background: transparent !important;
+	white-space: normal;
+	line-height: 1.25;
+}
+
+.nn-hero-full-funnel__table th:nth-child(1) {
+	width: 46%;
+}
+
+.nn-hero-full-funnel__table th:nth-child(2) {
+	width: 30%;
+}
+
+.nn-hero-full-funnel__table th:nth-child(3) {
+	width: 24%;
+}
+
+.nn-hero-full-funnel__table th:not(:first-child),
+.nn-hero-full-funnel__table td:not(:first-child) {
+	text-align: right;
+}
+
+.nn-hero-full-funnel__table td {
+	background: var(--nn-ff-bg-alt) !important;
+	padding: 11px 10px;
+	font-size: 0.86rem;
+	font-weight: 700;
+	color: var(--nn-ff-primary);
+	white-space: nowrap;
+}
+
+.nn-hero-full-funnel__table td:first-child {
+	border-radius: 9px 0 0 9px;
+	white-space: normal;
+	line-height: 1.25;
+}
+
+.nn-hero-full-funnel__table td:last-child {
+	border-radius: 0 9px 9px 0;
+}
+
+.nn-hero-full-funnel__row--win td {
+	background: rgb(39 125 89 / 0.13) !important;
+}
+
+.nn-hero-full-funnel__row--win td:last-child {
+	color: var(--nn-ff-green);
+}
+
+.nn-hero-full-funnel__inline-up {
+	display: inline;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: var(--nn-ff-green);
+	margin-left: 4px;
+	white-space: nowrap;
+}
+
+.nn-hero-full-funnel__caption {
+	display: block;
+	flex-shrink: 0;
+	font-size: 0.72rem !important;
+	line-height: 1.35 !important;
+	font-style: italic;
+	color: var(--nn-ff-text-light, #7f868d) !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	text-align: center;
+	padding: 10px 16px 14px;
+	margin: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.nn-hero-full-funnel__count {
+	display: inline-block;
+	min-width: 2ch;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Title + caption always visible; only rows/counts animate. */
+.nn-hero-full-funnel .nn-hero-full-funnel__heading,
+.nn-hero-full-funnel .nn-hero-full-funnel__heading-text,
+.nn-hero-full-funnel .nn-hero-full-funnel__caption {
+	opacity: 1 !important;
+	visibility: visible !important;
+	transform: none !important;
+}
+
+.nn-hero-full-funnel:not([data-nn-initialized]) .nn-hero-full-funnel__table tbody tr,
+.nn-hero-full-funnel:not([data-nn-initialized]) [data-nn-count] {
+	opacity: 1;
+	transform: none;
+}
+
+@media (max-width: 540px) {
+	.nn-hero-full-funnel__mock {
+		aspect-ratio: auto;
+		min-height: var(--nn-ff-height);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-full-funnel [data-nn-count] {
+		visibility: visible;
+	}
+}

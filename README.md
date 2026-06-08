@@ -29,17 +29,65 @@ Use this above a heading to render a short preheading line with a leading dash/l
 Animated hero with a center chart and platform icons orbiting clockwise on top of the chart. Pass **Media Library attachment IDs** or image URLs.
 
 ```text
-[nn-hero chart="123" icons="101,102,103,104,105,106,107,108,109,110"]
+[nn-hero chart="4434" hero-guy="4452" icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440"]
 ```
 
 | Attribute  | Description |
 |-----------|-------------|
 | `chart`   | Center chart image (attachment ID or URL) |
+| `hero-guy`| Foreground person image (attachment ID or URL); slides up when the hero enters the viewport |
 | `icons`   | Comma-separated list of orbiting icon IDs or URLs (60px / 3.75rem each) |
 | `duration`| Orbit speed in seconds (default `28`) |
+| `guy-delay` | Seconds to wait after the hero is visible before the guy slides up (default `0.6`) |
 | `class`   | Extra `nn-*` utility classes |
 
 To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.
+
+**Responsive / Elementor:** The section `.nn-hero` uses a **566×750** aspect ratio (`--nn-hero-ratio-w` / `--nn-hero-ratio-h`), `overflow: hidden`, and container queries so chart, icons, and hero guy scale together in any column width.
+
+### Hero full-funnel dashboard
+
+Self-contained cross-channel dashboard mock with GSAP count-up animation. Drop into Elementor via Shortcode widget.
+
+**Safest (one line — spaces in quotes are fine):**
+
+```text
+[nn-hero-full-funnel heading="One dashboard · every channel, measured the same way" rows="Google|44|2.8,Meta|39|3.4,Microsoft|27|4.6|win|↑ scale" duration="2"]
+```
+
+**Recommended for the block editor (put long text in the body, not split across attribute lines):**
+
+```text
+[nn-hero-full-funnel rows="Google|44|2.8,Meta|39|3.4,Microsoft|27|4.6|win|↑ scale" duration="2"]
+One dashboard · every channel, measured the same way
+---
+Illustrative — your real cross-channel dashboard
+[/nn-hero-full-funnel]
+```
+
+**Important:**
+- Spaces **do** work inside quoted attributes, but **multi-line shortcode tags** often break in the block editor. Prefer **one line** or use **inner content** (above).
+- Do **not** put `[` or `]` inside attributes.
+- Use straight quotes `"` or `'`, not curly `“ ”`.
+- You can use `+` instead of spaces in attributes: `heading="One+dashboard+every+channel"`.
+
+| Attribute  | Description |
+|-----------|-------------|
+| `heading` | Title above the table |
+| `caption` | Footer note under the table |
+| `rows`    | Comma-separated rows: `Channel\|cost\|roas\|win\|note` — `win` or `1` highlights a row; optional `note` (e.g. `↑ scale`) |
+| `duration`| Count-up animation length in seconds (default `2`) |
+| `class`   | Extra `nn-*` utility classes |
+
+**Rows format:** each row is `Channel|cost|roas` with optional `|win|` and optional note:
+
+```text
+Google|44|2.8
+Meta|39|3.4
+Microsoft|27|4.6|win|↑ scale
+```
+
+Numbers count from 0 when the block scrolls into view. Cost shows as `$44`, ROAS as `2.8x`.
 
 ## Requirements
 

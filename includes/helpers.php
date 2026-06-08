@@ -8,6 +8,111 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Collapse whitespace runs to a single space (keeps spaces between words).
+ *
+ * @param string $value Raw text.
+ * @return string
+ */
+function nn_collapse_whitespace( $value ) {
+	$value = preg_replace( '/\s+/u', ' ', (string) $value );
+	return trim( $value );
+}
+
+/**
+ * Strip block-editor HTML but preserve word spacing.
+ *
+ * @param string $value Raw HTML or text.
+ * @return string
+ */
+function nn_normalize_shortcode_content( $value ) {
+	$value = html_entity_decode( (string) $value, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	$value = str_replace(
+		array( '“', '”', '‘', '’', '&#8220;', '&#8221;', '&#8216;', '&#8217;' ),
+		array( '"', '"', "'", "'", '"', '"', "'", "'" ),
+		$value
+	);
+	$value = preg_replace( '#</?(?:p|div|li|h[1-6]|span)[^>]*>#i', ' ', $value );
+	$value = str_replace( array( '<br>', '<br/>', '<br />' ), ' ', $value );
+	$value = wp_strip_all_tags( $value );
+	$value = str_replace( '+', ' ', $value );
+
+	return nn_collapse_whitespace( $value );
+}
+
+/**
+ * Normalize shortcode attribute text: smart quotes, entities, editor HTML.
+ *
+ * @param string $value Raw attribute or inner content.
+ * @return string
+ */
+function nn_normalize_shortcode_text( $value ) {
+	$value = nn_normalize_shortcode_content( $value );
+	return trim( $value, "\"'" );
+}
+
+/**
+ * Parse inner shortcode body into optional heading + caption.
+ *
+ * Use "---" on its own line between heading and caption when both are in the body.
+ * Without "---", the whole body is treated as caption (legacy).
+ *
+ * @param string|null $content Inner shortcode content.
+ * @return array{heading: string, caption: string}
+ */
+function nn_parse_shortcode_inner_parts( $content ) {
+	$raw  = (string) $content;
+	$text = nn_normalize_shortcode_content( $content );
+
+	if ( '' === $text ) {
+		return array(
+			'heading' => '',
+			'caption' => '',
+		);
+	}
+
+	// Explicit: --- between heading and caption.
+	if ( preg_match( '/\s+---\s+/', $text ) ) {
+		$parts = preg_split( '/\s+---\s+/', $text, 2 );
+		return array(
+			'heading' => nn_normalize_shortcode_text( $parts[0] ?? '' ),
+			'caption' => nn_normalize_shortcode_text( $parts[1] ?? '' ),
+		);
+	}
+
+	// Block editor: two lines in the shortcode body.
+	if ( preg_match( '/[\r\n]/', wp_strip_all_tags( $raw ) ) ) {
+		$lines = preg_split( '/[\r\n]+/', $text, 2 );
+		if ( isset( $lines[1] ) && '' !== trim( $lines[1] ) ) {
+			return array(
+				'heading' => nn_normalize_shortcode_text( $lines[0] ),
+				'caption' => nn_normalize_shortcode_text( $lines[1] ),
+			);
+		}
+	}
+
+	// Single line merged with em/en dash before "Illustrative…".
+	if ( preg_match( '/^(.+?)\s+[—–-]\s+((?:\[)?Illustrative\b.+)$/iu', $text, $matches ) ) {
+		return array(
+			'heading' => nn_normalize_shortcode_text( $matches[1] ),
+			'caption' => nn_normalize_shortcode_text( $matches[2] ),
+		);
+	}
+
+	// Caption-only body (do not treat as merged heading+caption).
+	if ( preg_match( '/^(?:\[)?Illustrative\b/iu', $text ) ) {
+		return array(
+			'heading' => '',
+			'caption' => nn_normalize_shortcode_text( $text ),
+		);
+	}
+
+	return array(
+		'heading' => '',
+		'caption' => nn_normalize_shortcode_text( $text ),
+	);
+}
+
+/**
  * Load a template from templates/ with extracted args.
  *
  * @param string               $slug Template path without .php, relative to templates/.

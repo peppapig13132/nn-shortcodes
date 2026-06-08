@@ -3,7 +3,7 @@
  * Plugin Name:       NN Shortcodes
  * Plugin URI:        https://nn.partners
  * Description:       Custom shortcodes and section blocks for the NN Partners website.
- * Version:           1.0.0
+ * Version:           1.1.5
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            NN Partners
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NN_SHORTCODES_VERSION', '1.0.0' );
+define( 'NN_SHORTCODES_VERSION', '1.1.5' );
 define( 'NN_SHORTCODES_FILE', __FILE__ );
 define( 'NN_SHORTCODES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NN_SHORTCODES_URL', plugin_dir_url( __FILE__ ) );
