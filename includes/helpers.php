@@ -136,9 +136,9 @@ function nn_get_template( $slug, $args = array() ) {
 /**
  * Build a BEM class string for an NN block.
  *
- * @param string $block   Root block, e.g. "nn-hero".
- * @param string $element Optional element, e.g. "title" → nn-hero__title.
- * @param string $modifier Optional modifier, e.g. "dark" → nn-hero--dark or nn-hero__title--large.
+ * @param string $block   Root block, e.g. "nn-preheading".
+ * @param string $element Optional element, e.g. "text" → nn-preheading__text.
+ * @param string $modifier Optional modifier, e.g. "dark" → nn-preheading--dark or nn-preheading__text--large.
  * @return string
  */
 function nn_class( $block, $element = '', $modifier = '' ) {

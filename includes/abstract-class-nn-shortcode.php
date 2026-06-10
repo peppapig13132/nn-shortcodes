@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 abstract class NN_Shortcode {
 
 	/**
-	 * Shortcode tag without brackets, e.g. "nn-hero".
+	 * Shortcode tag without brackets, e.g. "nn-preheading".
 	 *
 	 * @return string
 	 */
@@ -43,7 +43,7 @@ abstract class NN_Shortcode {
 	}
 
 	/**
-	 * Root BEM block for this shortcode, e.g. "nn-hero".
+	 * Root BEM block for this shortcode, e.g. "nn-preheading".
 	 * Defaults to tag with underscores replaced by hyphens.
 	 *
 	 * @return string

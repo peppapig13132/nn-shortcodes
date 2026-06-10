@@ -55,8 +55,8 @@ class NN_Assets {
 		);
 
 		wp_register_style(
-			'nn-shortcodes-hero',
-			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-hero.css',
+			'nn-shortcodes-home-hero',
+			NN_SHORTCODES_URL . 'assets/css/nn-shortcodes-home-hero.css',
 			array( 'nn-shortcodes' ),
 			NN_SHORTCODES_VERSION
 		);
@@ -80,14 +80,6 @@ class NN_Assets {
 			'https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js',
 			array(),
 			'3.12.7',
-			true
-		);
-
-		wp_register_script(
-			'nn-shortcodes-hero',
-			NN_SHORTCODES_URL . 'assets/js/nn-shortcodes-hero.js',
-			array( 'gsap' ),
-			NN_SHORTCODES_VERSION,
 			true
 		);
 

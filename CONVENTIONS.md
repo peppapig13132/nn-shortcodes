@@ -41,12 +41,12 @@ The registry auto-loads every `class-nn-shortcode-*.php` file on `init`.
 
 | Layer        | Pattern              | Example        |
 |-------------|----------------------|----------------|
-| PHP class   | `NN_Shortcode_{Name}`| `NN_Shortcode_Hero` |
-| File        | `class-nn-shortcode-{name}.php` | `class-nn-shortcode-hero.php` |
-| Tag         | `nn-{name}`          | `[nn-hero]`    |
-| CSS block   | `nn-{name}`          | `.nn-hero`     |
+| PHP class   | `NN_Shortcode_{Name}`| `NN_Shortcode_Preheading` |
+| File        | `class-nn-shortcode-{name}.php` | `class-nn-shortcode-preheading.php` |
+| Tag         | `nn-{name}`          | `[nn-preheading]`    |
+| CSS block   | `nn-{name}`          | `.nn-preheading`     |
 
-Use **kebab-case** with the **`nn-`** prefix for shortcode tags (same as CSS blocks). Tags and BEM blocks align: `[nn-hero]` → `.nn-hero`.
+Use **kebab-case** with the **`nn-`** prefix for shortcode tags (same as CSS blocks). Tags and BEM blocks align: `[nn-preheading]` → `.nn-preheading`.
 
 ## CSS class naming (BEM + `nn-` prefix)
 
@@ -54,10 +54,10 @@ Follow [BEM](http://getbem.com/) with a mandatory `nn-` block prefix.
 
 | Type      | Pattern                    | Example              |
 |-----------|----------------------------|----------------------|
-| Block     | `nn-{component}`           | `.nn-hero`           |
-| Element   | `nn-{component}__{part}`   | `.nn-hero__title`    |
-| Modifier  | `nn-{component}--{variant}`| `.nn-hero--dark`     |
-| Element modifier | `nn-{component}__{part}--{variant}` | `.nn-hero__title--large` |
+| Block     | `nn-{component}`           | `.nn-preheading`           |
+| Element   | `nn-{component}__{part}`   | `.nn-preheading__text`    |
+| Modifier  | `nn-{component}--{variant}`| `.nn-preheading--dark`     |
+| Element modifier | `nn-{component}__{part}--{variant}` | `.nn-preheading__text--large` |
 
 ### Shared utilities (cross-shortcode)
 
@@ -81,10 +81,10 @@ Utility modifiers: `.nn-text-center`, `.nn-hidden` (only if used in multiple sho
 ### PHP helper
 
 ```php
-nn_class( 'nn-hero', 'title' );           // nn-hero__title
-nn_class( 'nn-hero', '', 'dark' );        // nn-hero--dark
-nn_class( 'nn-hero', 'title', 'large' ); // nn-hero__title--large
-nn_block_classes( 'nn-hero', 'nn-section' );
+nn_class( 'nn-preheading', 'text' );           // nn-preheading__text
+nn_class( 'nn-preheading', '', 'dark' );        // nn-preheading--dark
+nn_class( 'nn-preheading', 'text', 'large' ); // nn-preheading__text--large
+nn_block_classes( 'nn-preheading', 'nn-section' );
 ```
 
 ## Asset loading

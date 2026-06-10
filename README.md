@@ -14,7 +14,7 @@ See [CONVENTIONS.md](CONVENTIONS.md) for folder structure, BEM/`nn-` CSS rules, 
 
 ## Shortcodes
 
-All tags use the **`nn-`** prefix and **kebab-case** (e.g. `[nn-preheading]`, `[nn-hero]`).
+All tags use the **`nn-`** prefix and **kebab-case** (e.g. `[nn-preheading]`, `[nn-hero-full-funnel]`).
 
 ### Preheading
 
@@ -24,26 +24,17 @@ Use this above a heading to render a short preheading line with a leading dash/l
 [nn-preheading text="PPC Management + Data Intelligence"]
 ```
 
-### Hero orbit
+### Home hero chart
 
-Animated hero with a center chart and platform icons orbiting clockwise on top of the chart. Pass **Media Library attachment IDs** or image URLs.
+Green circle (470px) with four growth bars (56px wide, 14px corner radius). Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s).
 
 ```text
-[nn-hero chart="4434" hero-guy="4452" icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440"]
+[nn-home-hero]
 ```
 
-| Attribute  | Description |
+| Attribute | Description |
 |-----------|-------------|
-| `chart`   | Center chart image (attachment ID or URL) |
-| `hero-guy`| Foreground person image (attachment ID or URL); slides up when the hero enters the viewport |
-| `icons`   | Comma-separated list of orbiting icon IDs or URLs (60px / 3.75rem each) |
-| `duration`| Orbit speed in seconds (default `28`) |
-| `guy-delay` | Seconds to wait after the hero is visible before the guy slides up (default `0.6`) |
 | `class`   | Extra `nn-*` utility classes |
-
-To find attachment IDs: open an image in **Media → Library**, check the URL (`post=123`) or use a plugin that shows IDs in the list.
-
-**Responsive / Elementor:** The section `.nn-hero` uses a **566×750** aspect ratio (`--nn-hero-ratio-w` / `--nn-hero-ratio-h`), `overflow: hidden`, and container queries so chart, icons, and hero guy scale together in any column width.
 
 ### Hero full-funnel dashboard
 
