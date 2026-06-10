@@ -1,21 +1,34 @@
 /**
- * NN Home Hero — green circle growth chart (470px design).
- * Bars: 56px wide, 14px corner radius. Grow animation matches .dash-chart.
+ * NN Home Hero — 470px growth chart + static platform icons on a ring.
  */
 
 .nn-home-hero {
 	--nn-home-hero-size: 470px;
+	--nn-home-hero-icon-size: 3.75rem;
+	--nn-home-hero-orbit-radius: calc(var(--nn-home-hero-size) * 0.564);
 
-	display: block;
+	position: relative;
 	width: 100%;
-	max-width: var(--nn-home-hero-size);
+	max-width: 35.375rem;
+	aspect-ratio: 1;
 	margin-inline: auto;
 }
 
+.nn-home-hero__stage {
+	position: absolute;
+	inset: 0;
+}
+
 .nn-home-hero__chart {
-	display: block;
-	width: 100%;
-	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: var(--nn-home-hero-size);
+	height: var(--nn-home-hero-size);
+	max-width: 83%;
+	max-height: 83%;
+	transform: translate(-50%, -50%);
 	overflow: visible;
 }
 
@@ -59,6 +72,43 @@
 
 .nn-home-hero__bar[data-bar="4"] {
 	fill: #fff;
+}
+
+.nn-home-hero__icons {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.nn-home-hero__icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0;
+	height: 0;
+	transform: rotate(var(--angle));
+}
+
+.nn-home-hero__icon-positioner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: var(--nn-home-hero-icon-size);
+	height: var(--nn-home-hero-icon-size);
+	transform: translate(-50%, calc(-1 * var(--nn-home-hero-orbit-radius)))
+		rotate(calc(-1 * var(--angle)));
+}
+
+.nn-home-hero__icon-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: var(--nn-home-hero-icon-size);
+	max-height: var(--nn-home-hero-icon-size);
+	object-fit: contain;
+	filter: drop-shadow(0 4px 12px rgb(0 0 0 / 0.12));
 }
 
 @keyframes nn-home-hero-grow-bar {

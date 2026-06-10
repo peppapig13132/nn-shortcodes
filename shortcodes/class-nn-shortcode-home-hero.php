@@ -1,8 +1,9 @@
 <?php
 /**
- * Home page hero growth chart — green circle with growing bar columns.
+ * Home page hero growth chart — green circle, bars, static platform icons.
  *
- * Example: [nn-home-hero]
+ * Example:
+ * [nn-home-hero icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440,4441"]
  *
  * @package NN_Shortcodes
  */
@@ -26,6 +27,7 @@ class NN_Shortcode_Home_Hero extends NN_Shortcode {
 
 	protected function defaults() {
 		return array(
+			'icons' => '',
 			'class' => '',
 		);
 	}
@@ -64,12 +66,43 @@ class NN_Shortcode_Home_Hero extends NN_Shortcode {
 			);
 		}
 
+		$icons = $this->parse_icons( $atts['icons'] );
+		$step  = count( $icons ) > 0 ? 360 / count( $icons ) : 0;
+
+		foreach ( $icons as $index => $icon ) {
+			$icons[ $index ]['angle'] = $step * $index;
+		}
+
 		return array(
 			'chart_size' => $size,
 			'center'     => $center,
 			'radius'     => $radius,
 			'bars'       => $bars,
+			'icons'      => $icons,
 			'extra'      => $this->sanitize_classes( $atts['class'] ),
 		);
+	}
+
+	/**
+	 * @param string $icons Comma-separated attachment IDs or URLs.
+	 * @return array<int, array{id: int, url: string, alt: string, width: int, height: int, angle: float}>
+	 */
+	private function parse_icons( $icons ) {
+		$parsed = array();
+		$parts  = preg_split( '/\s*,\s*/', trim( (string) $icons ), -1, PREG_SPLIT_NO_EMPTY );
+
+		if ( ! $parts ) {
+			return $parsed;
+		}
+
+		foreach ( $parts as $part ) {
+			$image = nn_resolve_media( $part );
+
+			if ( $image ) {
+				$parsed[] = $image;
+			}
+		}
+
+		return $parsed;
 	}
 }

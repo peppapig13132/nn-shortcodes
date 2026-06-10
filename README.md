@@ -26,15 +26,18 @@ Use this above a heading to render a short preheading line with a leading dash/l
 
 ### Home hero chart
 
-Green circle (470px) with four growth bars (56px wide, 14px corner radius). Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s).
+Green circle (470px) with four growth bars (56px wide, 14px corner radius) and **11 static platform icons** on a ring around the chart. Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s).
 
 ```text
-[nn-home-hero]
+[nn-home-hero icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440,4441"]
 ```
 
 | Attribute | Description |
 |-----------|-------------|
+| `icons`   | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
 | `class`   | Extra `nn-*` utility classes |
+
+To find attachment IDs: open an image in **Media → Library** and check the URL (`post=123`).
 
 ### Hero full-funnel dashboard
 
