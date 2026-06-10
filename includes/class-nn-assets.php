@@ -84,6 +84,14 @@ class NN_Assets {
 		);
 
 		wp_register_script(
+			'nn-shortcodes-home-hero',
+			NN_SHORTCODES_URL . 'assets/js/nn-shortcodes-home-hero.js',
+			array(),
+			NN_SHORTCODES_VERSION,
+			true
+		);
+
+		wp_register_script(
 			'nn-shortcodes-hero-full-funnel',
 			NN_SHORTCODES_URL . 'assets/js/nn-shortcodes-hero-full-funnel.js',
 			array( 'gsap' ),

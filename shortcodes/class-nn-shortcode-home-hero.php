@@ -27,8 +27,9 @@ class NN_Shortcode_Home_Hero extends NN_Shortcode {
 
 	protected function defaults() {
 		return array(
-			'icons' => '',
-			'class' => '',
+			'icons'      => '',
+			'grow-delay' => '0.8',
+			'class'      => '',
 		);
 	}
 
@@ -38,7 +39,8 @@ class NN_Shortcode_Home_Hero extends NN_Shortcode {
 
 	public function assets() {
 		return array(
-			'styles' => array( 'nn-shortcodes-home-hero' ),
+			'styles'  => array( 'nn-shortcodes-home-hero' ),
+			'scripts' => array( 'nn-shortcodes-home-hero' ),
 		);
 	}
 
@@ -74,12 +76,13 @@ class NN_Shortcode_Home_Hero extends NN_Shortcode {
 		}
 
 		return array(
-			'chart_size' => $size,
-			'center'     => $center,
-			'radius'     => $radius,
-			'bars'       => $bars,
-			'icons'      => $icons,
-			'extra'      => $this->sanitize_classes( $atts['class'] ),
+			'chart_size'  => $size,
+			'center'      => $center,
+			'radius'      => $radius,
+			'bars'        => $bars,
+			'icons'       => $icons,
+			'grow_delay'  => max( 0, min( 5, (float) $atts['grow-delay'] ) ),
+			'extra'       => $this->sanitize_classes( $atts['class'] ),
 		);
 	}
 

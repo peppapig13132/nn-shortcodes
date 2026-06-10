@@ -32,10 +32,11 @@ Green circle (470px) with four growth bars (56px wide, 14px corner radius) and *
 [nn-home-hero icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440,4441"]
 ```
 
-| Attribute | Description |
-|-----------|-------------|
-| `icons`   | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
-| `class`   | Extra `nn-*` utility classes |
+| Attribute    | Description |
+|-------------|-------------|
+| `icons`     | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
+| `grow-delay`| Extra seconds to wait after the page finishes loading before bars animate (default `0.8`) |
+| `class`     | Extra `nn-*` utility classes |
 
 To find attachment IDs: open an image in **Media → Library** and check the URL (`post=123`).
 

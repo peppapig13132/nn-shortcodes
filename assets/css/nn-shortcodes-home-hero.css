@@ -39,22 +39,26 @@
 .nn-home-hero__bar {
 	transform-box: fill-box;
 	transform-origin: center bottom;
+	transform: scaleY(0);
+}
+
+.nn-home-hero--animate .nn-home-hero__bar {
 	animation: nn-home-hero-grow-bar 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.nn-home-hero__bar:nth-child(1) {
+.nn-home-hero--animate .nn-home-hero__bar:nth-child(1) {
 	animation-delay: 0.05s;
 }
 
-.nn-home-hero__bar:nth-child(2) {
+.nn-home-hero--animate .nn-home-hero__bar:nth-child(2) {
 	animation-delay: 0.12s;
 }
 
-.nn-home-hero__bar:nth-child(3) {
+.nn-home-hero--animate .nn-home-hero__bar:nth-child(3) {
 	animation-delay: 0.19s;
 }
 
-.nn-home-hero__bar:nth-child(4) {
+.nn-home-hero--animate .nn-home-hero__bar:nth-child(4) {
 	animation-delay: 0.26s;
 }
 
@@ -122,7 +126,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.nn-home-hero__bar {
+	.nn-home-hero__bar,
+	.nn-home-hero--animate .nn-home-hero__bar {
 		animation: none;
 		transform: scaleY(1);
 	}

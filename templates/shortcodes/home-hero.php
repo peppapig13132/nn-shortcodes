@@ -10,6 +10,7 @@
  * @var float  $radius
  * @var array<int, array{bar: int, x: float, y: float, w: int, h: int, rx: int}> $bars
  * @var array<int, array{id: int, url: string, alt: string, width: int, height: int, angle: float}> $icons
+ * @var float  $grow_delay
  * @var string $extra
  */
 
@@ -19,6 +20,7 @@ defined( 'ABSPATH' ) || exit;
 	class="<?php echo nn_block_classes( $block, $extra ); ?>"
 	aria-label="<?php echo esc_attr__( 'Growth chart with platform icons', 'nn-shortcodes' ); ?>"
 	style="<?php echo esc_attr( '--nn-home-hero-size: ' . (int) $chart_size . 'px' ); ?>"
+	data-grow-delay="<?php echo esc_attr( (string) $grow_delay ); ?>"
 >
 	<div class="<?php echo nn_class( $block, 'stage' ); ?>">
 		<svg
