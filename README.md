@@ -14,7 +14,7 @@ See [CONVENTIONS.md](CONVENTIONS.md) for folder structure, BEM/`nn-` CSS rules, 
 
 ## Shortcodes
 
-All tags use the **`nn-`** prefix and **kebab-case** (e.g. `[nn-preheading]`, `[nn-hero-full-funnel]`).
+All tags use the `**nn-`** prefix and **kebab-case** (e.g. `[nn-preheading]`, `[nn-hero-full-funnel]`).
 
 ### Preheading
 
@@ -26,19 +26,29 @@ Use this above a heading to render a short preheading line with a leading dash/l
 
 ### Home hero chart
 
-Green circle (470px) with four growth bars (56px wide, 14px corner radius) and **11 static platform icons** on a ring around the chart. Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s).
+Green circle (470px) with four growth bars (56px wide, 14px corner radius) and **11 static platform icons** on a ring around the chart. Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s). While the tallest bar grows, it loops a subtle white glow to emphasize growth.
 
 ```text
 [nn-home-hero icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440,4441"]
 ```
 
-| Attribute    | Description |
-|-------------|-------------|
-| `icons`     | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
-| `grow-delay`| Extra seconds to wait after the page finishes loading before bars animate (default `0.8`) |
-| `class`     | Extra `nn-*` utility classes |
+
+| Attribute    | Description                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `icons`      | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
+| `grow-delay` | Extra seconds to wait after the page finishes loading before bars animate (default `0.8`)                        |
+| `class`      | Extra `nn-*` utility classes                                                                                     |
+
 
 To find attachment IDs: open an image in **Media → Library** and check the URL (`post=123`).
+
+### Hero Google Ads ad preview
+
+Google Ads service page hero mock: search ad preview with sitelinks and KPI tiles. No attributes — drop in via Shortcode widget:
+
+```text
+[nn-hero-google-ads]
+```
 
 ### Hero full-funnel dashboard
 
@@ -61,18 +71,21 @@ Illustrative — your real cross-channel dashboard
 ```
 
 **Important:**
+
 - Spaces **do** work inside quoted attributes, but **multi-line shortcode tags** often break in the block editor. Prefer **one line** or use **inner content** (above).
 - Do **not** put `[` or `]` inside attributes.
 - Use straight quotes `"` or `'`, not curly `“ ”`.
 - You can use `+` instead of spaces in attributes: `heading="One+dashboard+every+channel"`.
 
-| Attribute  | Description |
-|-----------|-------------|
-| `heading` | Title above the table |
-| `caption` | Footer note under the table |
-| `rows`    | Comma-separated rows: `Channel\|cost\|roas\|win\|note` — `win` or `1` highlights a row; optional `note` (e.g. `↑ scale`) |
-| `duration`| Count-up animation length in seconds (default `2`) |
-| `class`   | Extra `nn-*` utility classes |
+
+| Attribute  | Description                                                                                                          |
+| ---------- | -------------------------------------------------------------------------------------------------------------------- |
+| `heading`  | Title above the table                                                                                                |
+| `caption`  | Footer note under the table                                                                                          |
+| `rows`     | Comma-separated rows: `Channel|cost|roas|win|note` — `win` or `1` highlights a row; optional `note` (e.g. `↑ scale`) |
+| `duration` | Count-up animation length in seconds (default `2`)                                                                   |
+| `class`    | Extra `nn-`* utility classes                                                                                         |
+
 
 **Rows format:** each row is `Channel|cost|roas` with optional `|win|` and optional note:
 
@@ -98,15 +111,18 @@ Custom labels (use `|` for line breaks inside a node; preserves `+`):
 [nn-hero-conversion-tracking source="Your Site|& App" hub="GTM +|Server-Side" destinations="GA4,Google Ads,Meta,Microsoft,BigQuery"]
 ```
 
-| Attribute      | Description |
-|----------------|-------------|
-| `source`       | Left node label; `|` splits lines (default `Your Site|& App`) |
-| `hub`          | Center hub label; `|` splits lines (default `GTM +|Server-Side`) |
+
+| Attribute      | Description                                                                           |
+| -------------- | ------------------------------------------------------------------------------------- |
+| `source`       | Left node label; `                                                                    |
+| `hub`          | Center hub label; `                                                                   |
 | `destinations` | Comma-separated destination labels (default `GA4,Google Ads,Meta,Microsoft,BigQuery`) |
-| `caption`      | Footer note (default illustrative caption, auto-bracketed) |
-| `class`        | Extra `nn-*` utility classes |
+| `caption`      | Footer note (default illustrative caption, auto-bracketed)                            |
+| `class`        | Extra `nn-*` utility classes                                                          |
+
 
 ## Requirements
 
 - WordPress 6.0+
 - PHP 7.4+
+

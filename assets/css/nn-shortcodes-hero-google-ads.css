@@ -1,0 +1,192 @@
+/**
+ * NN Hero Google Ads — search ad preview mock.
+ * Matches 20260530_nn-partners_google-ads.html (.admock).
+ */
+
+.nn-hero-google-ads {
+	--nn-ga-bg: var(--nn-color-bg, #fff);
+	--nn-ga-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ga-border: var(--nn-color-border, #e6e8ea);
+	--nn-ga-primary: var(--nn-color-primary, #050505);
+	--nn-ga-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ga-green: var(--nn-color-green, #277d59);
+	--nn-ga-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ga-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ga-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-google-ads *,
+.nn-hero-google-ads *::before,
+.nn-hero-google-ads *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-google-ads .admock {
+	background: var(--nn-ga-bg);
+	border: 1px solid var(--nn-ga-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ga-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-google-ads .admock-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ga-green-dark), var(--nn-ga-green-light));
+}
+
+.nn-hero-google-ads .admock-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+}
+
+.nn-hero-google-ads .admock-body {
+	padding: 22px 22px 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.nn-hero-google-ads .ad-preview {
+	animation: nn-hero-google-ads-fade-up 0.6s ease both;
+}
+
+.nn-hero-google-ads .ad-tag-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 4px;
+}
+
+.nn-hero-google-ads .ad-tag {
+	font-size: 0.69rem;
+	font-weight: 700;
+	color: var(--nn-ga-primary);
+	line-height: 1;
+}
+
+.nn-hero-google-ads .ad-url {
+	font-size: 0.75rem;
+	color: var(--nn-ga-text-light);
+}
+
+.nn-hero-google-ads .ad-h {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--nn-ga-green);
+	line-height: 1.3;
+}
+
+.nn-hero-google-ads .ad-d {
+	font-size: 0.8rem;
+	color: var(--nn-ga-text-light);
+	margin-top: 5px;
+	line-height: 1.55;
+}
+
+.nn-hero-google-ads .ad-sitelinks {
+	border-top: 1px solid var(--nn-ga-border);
+	padding-top: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.nn-hero-google-ads .ad-sitelinks-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+.nn-hero-google-ads .ad-sitelink-t {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--nn-ga-green);
+	line-height: 1.25;
+}
+
+.nn-hero-google-ads .ad-sitelink-d {
+	font-size: 0.8rem;
+	color: var(--nn-ga-text-light);
+	margin-top: 2px;
+	line-height: 1.6;
+}
+
+.nn-hero-google-ads .ad-kpis {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+}
+
+.nn-hero-google-ads .adk {
+	background: var(--nn-ga-bg-alt);
+	border-radius: 10px;
+	padding: 14px;
+	animation: nn-hero-google-ads-fade-up 0.6s ease both;
+}
+
+.nn-hero-google-ads .adk:nth-child(1) {
+	animation-delay: 0.12s;
+}
+
+.nn-hero-google-ads .adk:nth-child(2) {
+	animation-delay: 0.22s;
+}
+
+.nn-hero-google-ads .adk:nth-child(3) {
+	animation-delay: 0.32s;
+}
+
+.nn-hero-google-ads .adk b {
+	display: block;
+	font-family: var(--nn-font-heading, inherit);
+	font-size: 1.38rem;
+	font-weight: 800;
+	color: var(--nn-ga-green);
+}
+
+.nn-hero-google-ads .adk i {
+	font-style: normal;
+	font-size: 0.8rem;
+	color: var(--nn-ga-text-light);
+}
+
+@keyframes nn-hero-google-ads-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-google-ads .ad-preview,
+	.nn-hero-google-ads .adk {
+		animation: none;
+	}
+}
+
+@media (max-width: 540px) {
+	.nn-hero-google-ads .ad-sitelinks-row {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.nn-hero-google-ads .ad-kpis {
+		grid-template-columns: 1fr;
+	}
+}

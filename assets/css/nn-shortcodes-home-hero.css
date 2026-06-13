@@ -59,7 +59,9 @@
 }
 
 .nn-home-hero--animate .nn-home-hero__bar:nth-child(4) {
-	animation-delay: 0.26s;
+	animation:
+		nn-home-hero-grow-bar 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.26s both,
+		nn-home-hero-bar-glow 3s ease-in-out 0.26s infinite;
 }
 
 .nn-home-hero__bar[data-bar="1"] {
@@ -125,10 +127,22 @@
 	}
 }
 
+@keyframes nn-home-hero-bar-glow {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 3px rgb(255 255 255 / 0.2));
+	}
+
+	50% {
+		filter: drop-shadow(0 0 14px rgb(255 255 255 / 0.8));
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.nn-home-hero__bar,
 	.nn-home-hero--animate .nn-home-hero__bar {
 		animation: none;
+		filter: none;
 		transform: scaleY(1);
 	}
 }
