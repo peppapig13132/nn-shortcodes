@@ -1,0 +1,186 @@
+/**
+ * NN Hero Home — chart + foreground figure as one sized block (566 × 716 design).
+ */
+
+.nn-hero-home {
+	--nn-hero-home-size: 470px;
+	--nn-hero-home-orbit-scale: 0.468338;
+	--nn-hero-home-icon-scale: 0.106007;
+	--nn-hero-home-block-width: 566px;
+	--nn-hero-home-block-height: 716px;
+	--nn-hero-home-chart-share: calc(566 / 716);
+
+	position: relative;
+	width: 100%;
+	max-width: var(--nn-hero-home-block-width);
+	aspect-ratio: 1;
+	margin-inline: auto;
+}
+
+.nn-hero-home--has-guy {
+	aspect-ratio: 566 / 716;
+}
+
+.nn-hero-home__stage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.nn-hero-home--has-guy .nn-hero-home__stage {
+	height: calc(100% * var(--nn-hero-home-chart-share));
+}
+
+.nn-hero-home__chart {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: var(--nn-hero-home-size);
+	height: var(--nn-hero-home-size);
+	max-width: 83%;
+	max-height: 83%;
+	transform: translate(-50%, -50%);
+	overflow: visible;
+}
+
+.nn-hero-home__chart-bg {
+	fill: #2d7d5a;
+}
+
+.nn-hero-home__bar {
+	transform-box: fill-box;
+	transform-origin: center bottom;
+	transform: scaleY(0);
+}
+
+.nn-hero-home--animate .nn-hero-home__bar {
+	animation: nn-hero-home-grow-bar 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.nn-hero-home--animate .nn-hero-home__bar:nth-child(1) {
+	animation-delay: 0.05s;
+}
+
+.nn-hero-home--animate .nn-hero-home__bar:nth-child(2) {
+	animation-delay: 0.12s;
+}
+
+.nn-hero-home--animate .nn-hero-home__bar:nth-child(3) {
+	animation-delay: 0.19s;
+}
+
+.nn-hero-home--animate .nn-hero-home__bar:nth-child(4) {
+	animation:
+		nn-hero-home-grow-bar 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.26s both,
+		nn-hero-home-bar-glow 3s ease-in-out 0.26s infinite;
+}
+
+.nn-hero-home__bar[data-bar="1"] {
+	fill: rgb(255 255 255 / 0.28);
+}
+
+.nn-hero-home__bar[data-bar="2"] {
+	fill: rgb(255 255 255 / 0.48);
+}
+
+.nn-hero-home__bar[data-bar="3"] {
+	fill: rgb(255 255 255 / 0.74);
+}
+
+.nn-hero-home__bar[data-bar="4"] {
+	fill: #fff;
+}
+
+.nn-hero-home__icons {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	overflow: visible;
+	pointer-events: none;
+	container-type: inline-size;
+}
+
+.nn-hero-home--has-guy .nn-hero-home__icons {
+	height: calc(100% * var(--nn-hero-home-chart-share));
+}
+
+.nn-hero-home__icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0;
+	height: 0;
+	transform: rotate(var(--angle));
+}
+
+.nn-hero-home__icon-positioner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: calc(var(--nn-hero-home-icon-scale) * 100cqi);
+	height: calc(var(--nn-hero-home-icon-scale) * 100cqi);
+	transform: translate(-50%, calc(var(--nn-hero-home-orbit-scale) * -100cqi))
+		rotate(calc(-1 * var(--angle)));
+}
+
+.nn-hero-home__icon-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: drop-shadow(0 4px 12px rgb(0 0 0 / 0.12));
+}
+
+.nn-hero-home__guy {
+	position: absolute;
+	inset: 0;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.nn-hero-home__guy-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center bottom;
+}
+
+@keyframes nn-hero-home-grow-bar {
+	from {
+		transform: scaleY(0);
+	}
+
+	to {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes nn-hero-home-bar-glow {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 3px rgb(255 255 255 / 0.2));
+	}
+
+	50% {
+		filter: drop-shadow(0 0 14px rgb(255 255 255 / 0.8));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-home__bar,
+	.nn-hero-home--animate .nn-hero-home__bar {
+		animation: none;
+		filter: none;
+		transform: scaleY(1);
+	}
+}

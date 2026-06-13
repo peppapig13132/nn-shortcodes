@@ -11,10 +11,10 @@
   }
 
   function startAnimation(root) {
-    if (root.classList.contains("nn-home-hero--animate")) {
+    if (root.classList.contains("nn-hero-home--animate")) {
       return;
     }
-    root.classList.add("nn-home-hero--animate");
+    root.classList.add("nn-hero-home--animate");
   }
 
   function scheduleAnimation(root) {
@@ -38,5 +38,5 @@
     }
   }
 
-  document.querySelectorAll(".nn-home-hero").forEach(scheduleAnimation);
+  document.querySelectorAll(".nn-hero-home").forEach(scheduleAnimation);
 })();

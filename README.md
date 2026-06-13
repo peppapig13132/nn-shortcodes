@@ -24,18 +24,19 @@ Use this above a heading to render a short preheading line with a leading dash/l
 [nn-preheading text="PPC Management + Data Intelligence"]
 ```
 
-### Home hero chart
+### Hero home chart
 
-Green circle (470px) with four growth bars (56px wide, 14px corner radius) and **11 static platform icons** on a ring around the chart. Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s). While the tallest bar grows, it loops a subtle white glow to emphasize growth.
+Green circle (470px) with four growth bars (56px wide, 14px corner radius), a **static foreground figure** in front of the chart, and **11 static platform icons** on a ring around the chart. Chart and figure render as **one block** (566 × 716px design ratio) so the shortcode can be bottom-aligned inside an Elementor container without overflow. Bars grow up from the bottom with the same staggered animation as the `.dash-chart` mock on nn.partners (`grow-bar`: 0.7s, `cubic-bezier(.2,.7,.2,1)`, delays 0.05s–0.26s). While the tallest bar grows, it loops a subtle white glow to emphasize growth.
 
 ```text
-[nn-home-hero icons="4417,4418,4419,4420,4421,4422,4423,4437,4439,4440,4441"]
+[nn-hero-home]
 ```
 
 
 | Attribute    | Description                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `icons`      | Comma-separated Media Library attachment IDs (or image URLs) — evenly spaced around the chart, static (no orbit) |
+| `hero-guy`   | Foreground figure — Media Library attachment ID or URL (default `1500`)                                          |
+| `icons`      | Comma-separated attachment IDs or URLs — evenly spaced around the chart (default: icon `1216` repeated 11 times) |
 | `grow-delay` | Extra seconds to wait after the page finishes loading before bars animate (default `0.8`)                        |
 | `class`      | Extra `nn-*` utility classes                                                                                     |
 
