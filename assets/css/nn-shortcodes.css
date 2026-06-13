@@ -15,6 +15,44 @@
 	--nn-color-on-dark: #ffffff;
 	--nn-color-border: #e6e8ea;
 
-	--nn-font-heading: "Onest", system-ui, -apple-system, sans-serif;
-	--nn-font-body: "Onest", system-ui, -apple-system, sans-serif;
+	/* Hero mock cards — shared shadow (3px wrapper padding in hero blocks below) */
+	--nn-hero-mock-shadow: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+	--nn-hero-mock-shadow-mobile: 0 1px 2px rgb(5 5 5 / 0.05), 0 3px 8px rgb(5 5 5 / 0.06);
+}
+
+/* Room for card shadow when the Elementor column uses ~3px padding */
+.nn-hero-google-ads,
+.nn-hero-meta-ads,
+.nn-hero-microsoft-ads,
+.nn-hero-analytics-data,
+.nn-hero-intelligence-reporting,
+.nn-hero-data-warehouse,
+.nn-hero-conversion-tracking,
+.nn-hero-full-funnel {
+	padding: 3px;
+	overflow: visible;
+}
+
+.nn-hero-google-ads .admock,
+.nn-hero-meta-ads .fbmock,
+.nn-hero-microsoft-ads .msmock,
+.nn-hero-analytics-data .dash-mock,
+.nn-hero-intelligence-reporting .irmock,
+.nn-hero-data-warehouse .dwmock,
+.nn-hero-conversion-tracking .flow-mock,
+.nn-hero-full-funnel__mock {
+	box-shadow: var(--nn-hero-mock-shadow);
+}
+
+@media (max-width: 767px) {
+	.nn-hero-google-ads .admock,
+	.nn-hero-meta-ads .fbmock,
+	.nn-hero-microsoft-ads .msmock,
+	.nn-hero-analytics-data .dash-mock,
+	.nn-hero-intelligence-reporting .irmock,
+	.nn-hero-data-warehouse .dwmock,
+	.nn-hero-conversion-tracking .flow-mock,
+	.nn-hero-full-funnel__mock {
+		box-shadow: var(--nn-hero-mock-shadow-mobile);
+	}
 }

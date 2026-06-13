@@ -11,13 +11,11 @@
 	--nn-ir-green: var(--nn-color-green, #277d59);
 	--nn-ir-green-dark: var(--nn-color-green-dark, #1c593f);
 	--nn-ir-green-light: var(--nn-color-green-light, #30996d);
-	--nn-ir-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
 
 	box-sizing: border-box;
 	width: 100%;
 	max-width: 42.9375rem;
 	margin-inline: auto;
-	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
 	isolation: isolate;
 }
 
@@ -31,7 +29,6 @@
 	background: var(--nn-ir-bg);
 	border: 1px solid var(--nn-ir-border);
 	border-radius: 16px;
-	box-shadow: var(--nn-ir-shadow-md);
 	overflow: hidden;
 }
 

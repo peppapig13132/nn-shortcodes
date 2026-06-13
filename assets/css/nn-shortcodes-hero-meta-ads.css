@@ -11,13 +11,11 @@
 	--nn-ma-green: var(--nn-color-green, #277d59);
 	--nn-ma-green-dark: var(--nn-color-green-dark, #1c593f);
 	--nn-ma-green-light: var(--nn-color-green-light, #30996d);
-	--nn-ma-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
 
 	box-sizing: border-box;
 	width: 100%;
 	max-width: 42.9375rem;
 	margin-inline: auto;
-	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
 	isolation: isolate;
 }
 
@@ -31,7 +29,6 @@
 	background: var(--nn-ma-bg);
 	border: 1px solid var(--nn-ma-border);
 	border-radius: 16px;
-	box-shadow: var(--nn-ma-shadow-md);
 	overflow: hidden;
 }
 
@@ -168,7 +165,6 @@
 
 .nn-hero-meta-ads .fbk b {
 	display: block;
-	font-family: var(--nn-font-heading, inherit);
 	font-size: 1.35rem;
 	font-weight: 800;
 	color: var(--nn-ma-green);

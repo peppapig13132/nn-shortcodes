@@ -46,16 +46,18 @@ To find attachment IDs: open an image in **Media → Library** and check the URL
 
 Static hero illustrations from the nn.partners wireframes. **No attributes** — paste into Elementor Shortcode widget:
 
-| Page | Shortcode |
-|------|-----------|
-| Google Ads | `[nn-hero-google-ads]` |
-| Meta Ads | `[nn-hero-meta-ads]` |
-| Microsoft Ads | `[nn-hero-microsoft-ads]` |
-| Full-Funnel Management | `[nn-hero-full-funnel]` |
-| Analytics & Data Intelligence | `[nn-hero-analytics-data]` |
-| Conversion Tracking | `[nn-hero-conversion-tracking]` |
-| Intelligence Reporting | `[nn-hero-intelligence-reporting]` |
-| Data Warehouse | `[nn-hero-data-warehouse]` |
+
+| Page                          | Shortcode                          |
+| ----------------------------- | ---------------------------------- |
+| Google Ads                    | `[nn-hero-google-ads]`             |
+| Meta Ads                      | `[nn-hero-meta-ads]`               |
+| Microsoft Ads                 | `[nn-hero-microsoft-ads]`          |
+| Full-Funnel Management        | `[nn-hero-full-funnel]`            |
+| Analytics & Data Intelligence | `[nn-hero-analytics-data]`         |
+| Conversion Tracking           | `[nn-hero-conversion-tracking]`    |
+| Intelligence Reporting        | `[nn-hero-intelligence-reporting]` |
+| Data Warehouse                | `[nn-hero-data-warehouse]`         |
+
 
 ### Hero full-funnel dashboard
 
@@ -89,13 +91,13 @@ Illustrative — your real cross-channel dashboard
 - You can use `+` instead of spaces in attributes: `heading="One+dashboard+every+channel"`.
 
 
-| Attribute  | Description                                                                                                          |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| `heading`  | Title above the table                                                                                                |
-| `caption`  | Footer note under the table                                                                                          |
-| `rows`     | Comma-separated rows: `Channel|cost|roas|win|note` — `win` or `1` highlights a row; optional `note` (e.g. `↑ scale`) |
-| `duration` | Count-up animation length in seconds (default `2`)                                                                   |
-| `class`    | Extra `nn-`* utility classes                                                                                         |
+| Attribute  | Description                                        |
+| ---------- | -------------------------------------------------- |
+| `heading`  | Title above the table                              |
+| `caption`  | Footer note under the table                        |
+| `rows`     | Comma-separated rows: `Channel                     |
+| `duration` | Count-up animation length in seconds (default `2`) |
+| `class`    | Extra `nn-`* utility classes                       |
 
 
 **Rows format:** each row is `Channel|cost|roas` with optional `|win|` and optional note:
