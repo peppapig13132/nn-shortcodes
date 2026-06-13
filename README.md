@@ -42,19 +42,30 @@ Green circle (470px) with four growth bars (56px wide, 14px corner radius) and *
 
 To find attachment IDs: open an image in **Media → Library** and check the URL (`post=123`).
 
-### Hero Google Ads ad preview
+### Service page hero mocks
 
-Google Ads service page hero mock: search ad preview with sitelinks and KPI tiles. No attributes — drop in via Shortcode widget:
+Static hero illustrations from the nn.partners wireframes. **No attributes** — paste into Elementor Shortcode widget:
 
-```text
-[nn-hero-google-ads]
-```
+| Page | Shortcode |
+|------|-----------|
+| Google Ads | `[nn-hero-google-ads]` |
+| Meta Ads | `[nn-hero-meta-ads]` |
+| Microsoft Ads | `[nn-hero-microsoft-ads]` |
+| Full-Funnel Management | `[nn-hero-full-funnel]` |
+| Analytics & Data Intelligence | `[nn-hero-analytics-data]` |
+| Conversion Tracking | `[nn-hero-conversion-tracking]` |
+| Intelligence Reporting | `[nn-hero-intelligence-reporting]` |
+| Data Warehouse | `[nn-hero-data-warehouse]` |
 
 ### Hero full-funnel dashboard
 
-Self-contained cross-channel dashboard mock with GSAP count-up animation. Drop into Elementor via Shortcode widget.
+Cross-channel dashboard mock with GSAP count-up animation. Works with no attributes (wireframe defaults):
 
-**Safest (one line — spaces in quotes are fine):**
+```text
+[nn-hero-full-funnel]
+```
+
+Optional customization:
 
 ```text
 [nn-hero-full-funnel heading="One dashboard · every channel, measured the same way" rows="Google|44|2.8,Meta|39|3.4,Microsoft|27|4.6|win|↑ scale" duration="2"]
@@ -99,13 +110,13 @@ Numbers count from 0 when the block scrolls into view. Cost shows as `$44`, ROAS
 
 ### Hero conversion-tracking data flow
 
-Illustrative server-side tracking diagram: source → GTM hub → destination platforms. Drop into Elementor via Shortcode widget.
+Server-side tracking diagram: source → GTM hub → destination platforms. Works with no attributes:
 
 ```text
 [nn-hero-conversion-tracking]
 ```
 
-Custom labels (use `|` for line breaks inside a node; preserves `+`):
+Optional customization:
 
 ```text
 [nn-hero-conversion-tracking source="Your Site|& App" hub="GTM +|Server-Side" destinations="GA4,Google Ads,Meta,Microsoft,BigQuery"]

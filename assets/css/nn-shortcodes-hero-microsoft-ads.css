@@ -1,0 +1,193 @@
+/**
+ * NN Hero Microsoft Ads — LinkedIn targeting mock.
+ */
+
+.nn-hero-microsoft-ads {
+	--nn-ms-bg: var(--nn-color-bg, #fff);
+	--nn-ms-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ms-border: var(--nn-color-border, #e6e8ea);
+	--nn-ms-primary: var(--nn-color-primary, #050505);
+	--nn-ms-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ms-green: var(--nn-color-green, #277d59);
+	--nn-ms-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ms-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ms-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-microsoft-ads *,
+.nn-hero-microsoft-ads *::before,
+.nn-hero-microsoft-ads *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-microsoft-ads .msmock {
+	background: var(--nn-ms-bg);
+	border: 1px solid var(--nn-ms-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ms-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-microsoft-ads .ms-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ms-green-dark), var(--nn-ms-green-light));
+}
+
+.nn-hero-microsoft-ads .ms-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+}
+
+.nn-hero-microsoft-ads .ms-body {
+	padding: 24px;
+}
+
+.nn-hero-microsoft-ads .ms-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 700;
+	font-size: 0.88rem;
+	color: var(--nn-ms-primary);
+	margin-bottom: 16px;
+}
+
+.nn-hero-microsoft-ads .ms-title .gdot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--nn-ms-green);
+	flex-shrink: 0;
+}
+
+.nn-hero-microsoft-ads .ms-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 11px 0;
+	border-bottom: 1px solid var(--nn-ms-border);
+}
+
+.nn-hero-microsoft-ads .ms-row:last-of-type {
+	border-bottom: none;
+}
+
+.nn-hero-microsoft-ads .ms-row .lbl {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--nn-ms-text-light);
+	font-weight: 700;
+	width: 118px;
+	flex-shrink: 0;
+}
+
+.nn-hero-microsoft-ads .ms-chips {
+	display: flex;
+	gap: 7px;
+	flex-wrap: wrap;
+}
+
+.nn-hero-microsoft-ads .ms-chip {
+	background: var(--nn-ms-bg-alt);
+	border: 1px solid var(--nn-ms-border);
+	border-radius: 7px;
+	padding: 5px 10px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: var(--nn-ms-primary);
+}
+
+.nn-hero-microsoft-ads .ms-kpis {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+	margin-top: 18px;
+}
+
+.nn-hero-microsoft-ads .msk {
+	background: var(--nn-ms-bg-alt);
+	border-radius: 10px;
+	padding: 13px 10px;
+	text-align: center;
+	animation: nn-hero-ms-fade-up 0.6s ease both;
+}
+
+.nn-hero-microsoft-ads .msk:nth-child(1) {
+	animation-delay: 0.14s;
+}
+
+.nn-hero-microsoft-ads .msk:nth-child(2) {
+	animation-delay: 0.24s;
+}
+
+.nn-hero-microsoft-ads .msk:nth-child(3) {
+	animation-delay: 0.34s;
+}
+
+.nn-hero-microsoft-ads .msk b {
+	display: block;
+	font-family: var(--nn-font-heading, inherit);
+	font-size: 1.2rem;
+	font-weight: 800;
+	color: var(--nn-ms-green);
+	line-height: 1.1;
+}
+
+.nn-hero-microsoft-ads .msk i {
+	font-style: normal;
+	font-size: 0.7rem;
+	color: var(--nn-ms-text-light);
+}
+
+.nn-hero-microsoft-ads .ms-cap {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-ms-text-light);
+	text-align: center;
+	padding: 14px 22px;
+}
+
+@keyframes nn-hero-ms-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-microsoft-ads .msk {
+		animation: none;
+	}
+}
+
+@media (max-width: 540px) {
+	.nn-hero-microsoft-ads .ms-row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.nn-hero-microsoft-ads .ms-row .lbl {
+		width: auto;
+	}
+
+	.nn-hero-microsoft-ads .ms-kpis {
+		grid-template-columns: 1fr;
+	}
+}

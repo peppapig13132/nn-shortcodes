@@ -1,0 +1,150 @@
+/**
+ * NN Hero Analytics Data — dashboard mock with growing chart bars.
+ */
+
+.nn-hero-analytics-data {
+	--nn-ad-bg: var(--nn-color-bg, #fff);
+	--nn-ad-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ad-border: var(--nn-color-border, #e6e8ea);
+	--nn-ad-green: var(--nn-color-green, #277d59);
+	--nn-ad-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ad-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ad-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ad-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-analytics-data *,
+.nn-hero-analytics-data *::before,
+.nn-hero-analytics-data *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-analytics-data .dash-mock {
+	background: var(--nn-ad-bg);
+	border: 1px solid var(--nn-ad-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ad-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-analytics-data .dash-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ad-green-dark), var(--nn-ad-green-light));
+}
+
+.nn-hero-analytics-data .dash-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+}
+
+.nn-hero-analytics-data .dash-body {
+	padding: 22px 22px 4px;
+}
+
+.nn-hero-analytics-data .dash-kpis {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+	margin-bottom: 20px;
+}
+
+.nn-hero-analytics-data .dk {
+	background: var(--nn-ad-bg-alt);
+	border-radius: 10px;
+	padding: 14px;
+}
+
+.nn-hero-analytics-data .dk b {
+	display: block;
+	font-family: var(--nn-font-heading, inherit);
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: var(--nn-ad-green);
+}
+
+.nn-hero-analytics-data .dk i {
+	font-style: normal;
+	font-size: 0.76rem;
+	color: var(--nn-ad-text-light);
+}
+
+.nn-hero-analytics-data .dash-chart {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+	height: 150px;
+}
+
+.nn-hero-analytics-data .dash-chart span {
+	flex: 1;
+	background: linear-gradient(180deg, var(--nn-ad-green-light), var(--nn-ad-green));
+	border-radius: 6px 6px 0 0;
+	opacity: 0.9;
+	transform-origin: bottom;
+	animation: nn-hero-ad-grow-bar 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(1) {
+	animation-delay: 0.05s;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(2) {
+	animation-delay: 0.12s;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(3) {
+	animation-delay: 0.19s;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(4) {
+	animation-delay: 0.26s;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(5) {
+	animation-delay: 0.33s;
+}
+
+.nn-hero-analytics-data .dash-chart span:nth-child(6) {
+	animation-delay: 0.4s;
+}
+
+.nn-hero-analytics-data .dash-cap {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-ad-text-light);
+	text-align: center;
+	padding: 10px 22px 14px;
+}
+
+@keyframes nn-hero-ad-grow-bar {
+	from {
+		transform: scaleY(0);
+	}
+
+	to {
+		transform: scaleY(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-analytics-data .dash-chart span {
+		animation: none;
+	}
+}
+
+@media (max-width: 540px) {
+	.nn-hero-analytics-data .dash-kpis {
+		grid-template-columns: 1fr;
+	}
+}

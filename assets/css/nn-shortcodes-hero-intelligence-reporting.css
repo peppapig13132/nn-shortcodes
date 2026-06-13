@@ -1,0 +1,142 @@
+/**
+ * NN Hero Intelligence Reporting — reconciled ROAS report mock.
+ */
+
+.nn-hero-intelligence-reporting {
+	--nn-ir-bg: var(--nn-color-bg, #fff);
+	--nn-ir-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ir-border: var(--nn-color-border, #e6e8ea);
+	--nn-ir-primary: var(--nn-color-primary, #050505);
+	--nn-ir-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ir-green: var(--nn-color-green, #277d59);
+	--nn-ir-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ir-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ir-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-intelligence-reporting *,
+.nn-hero-intelligence-reporting *::before,
+.nn-hero-intelligence-reporting *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-intelligence-reporting .irmock {
+	background: var(--nn-ir-bg);
+	border: 1px solid var(--nn-ir-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ir-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-intelligence-reporting .ir-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-ir-green-dark), var(--nn-ir-green-light));
+}
+
+.nn-hero-intelligence-reporting .ir-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+}
+
+.nn-hero-intelligence-reporting .ir-body {
+	padding: 24px;
+}
+
+.nn-hero-intelligence-reporting .ir-h {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 700;
+	font-size: 0.88rem;
+	color: var(--nn-ir-primary);
+	margin-bottom: 16px;
+}
+
+.nn-hero-intelligence-reporting .ir-h .gdot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--nn-ir-green);
+	flex-shrink: 0;
+}
+
+.nn-hero-intelligence-reporting .ir-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 8px;
+}
+
+.nn-hero-intelligence-reporting .ir-table th {
+	font-size: 0.64rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--nn-ir-text-light);
+	text-align: left;
+	padding: 0 12px 4px;
+	font-weight: 700;
+}
+
+.nn-hero-intelligence-reporting .ir-table th:not(:first-child),
+.nn-hero-intelligence-reporting .ir-table td:not(:first-child) {
+	text-align: right;
+}
+
+.nn-hero-intelligence-reporting .ir-table td {
+	background: var(--nn-ir-bg-alt);
+	padding: 13px 12px;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: var(--nn-ir-primary);
+}
+
+.nn-hero-intelligence-reporting .ir-table td:first-child {
+	border-radius: 9px 0 0 9px;
+}
+
+.nn-hero-intelligence-reporting .ir-table td:last-child {
+	border-radius: 0 9px 9px 0;
+}
+
+.nn-hero-intelligence-reporting .ir-rep {
+	color: var(--nn-ir-text-light);
+	text-decoration: line-through;
+	font-weight: 600;
+}
+
+.nn-hero-intelligence-reporting .ir-rec {
+	color: var(--nn-ir-green);
+	font-weight: 800;
+}
+
+.nn-hero-intelligence-reporting .ir-badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	margin-top: 12px;
+	background: rgb(39 125 89 / 0.1);
+	color: var(--nn-ir-green-dark);
+	border-radius: 9px;
+	padding: 10px;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.nn-hero-intelligence-reporting .ir-cap {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-ir-text-light);
+	text-align: center;
+	padding: 14px 22px;
+}

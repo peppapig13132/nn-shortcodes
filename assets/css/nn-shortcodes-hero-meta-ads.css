@@ -1,0 +1,214 @@
+/**
+ * NN Hero Meta Ads — feed ad preview mock.
+ */
+
+.nn-hero-meta-ads {
+	--nn-ma-bg: var(--nn-color-bg, #fff);
+	--nn-ma-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-ma-border: var(--nn-color-border, #e6e8ea);
+	--nn-ma-primary: var(--nn-color-primary, #050505);
+	--nn-ma-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-ma-green: var(--nn-color-green, #277d59);
+	--nn-ma-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-ma-green-light: var(--nn-color-green-light, #30996d);
+	--nn-ma-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-meta-ads *,
+.nn-hero-meta-ads *::before,
+.nn-hero-meta-ads *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-meta-ads .fbmock {
+	background: var(--nn-ma-bg);
+	border: 1px solid var(--nn-ma-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-ma-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-meta-ads .fb-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: #f5f5f5;
+	border-bottom: 1px solid var(--nn-ma-border);
+}
+
+.nn-hero-meta-ads .fb-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: #d0d0d0;
+}
+
+.nn-hero-meta-ads .fb-body {
+	padding: 22px;
+}
+
+.nn-hero-meta-ads .fb-ad {
+	border: 1px solid var(--nn-ma-border);
+	border-radius: 12px;
+	overflow: hidden;
+	animation: nn-hero-meta-ads-fade-up 0.6s ease both;
+}
+
+.nn-hero-meta-ads .fb-head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 14px;
+}
+
+.nn-hero-meta-ads .fb-avatar {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, var(--nn-ma-green-dark), var(--nn-ma-green-light));
+	flex-shrink: 0;
+}
+
+.nn-hero-meta-ads .fb-name {
+	font-weight: 700;
+	font-size: 0.9rem;
+	color: var(--nn-ma-primary);
+	line-height: 1.15;
+}
+
+.nn-hero-meta-ads .fb-spon {
+	font-size: 0.72rem;
+	color: var(--nn-ma-text-light);
+}
+
+.nn-hero-meta-ads .fb-text {
+	padding: 0 14px 12px;
+	font-size: 0.86rem;
+	color: var(--nn-ma-primary);
+}
+
+.nn-hero-meta-ads .fb-creative {
+	aspect-ratio: 16 / 9;
+	background: var(--nn-ma-bg-alt);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-ma-text-light);
+	border-top: 1px solid var(--nn-ma-border);
+	border-bottom: 1px solid var(--nn-ma-border);
+}
+
+.nn-hero-meta-ads .fb-foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 14px;
+	gap: 12px;
+}
+
+.nn-hero-meta-ads .fb-foot .h {
+	font-size: 0.86rem;
+	font-weight: 700;
+	color: var(--nn-ma-primary);
+	line-height: 1.2;
+}
+
+.nn-hero-meta-ads .fb-foot .sub {
+	font-size: 0.72rem;
+	color: var(--nn-ma-text-light);
+}
+
+.nn-hero-meta-ads .fb-btn {
+	background: var(--nn-ma-bg-alt);
+	border: 1px solid var(--nn-ma-border);
+	border-radius: 8px;
+	padding: 8px 14px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: var(--nn-ma-green-dark);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.nn-hero-meta-ads .fb-kpis {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+	margin-top: 18px;
+}
+
+.nn-hero-meta-ads .fbk {
+	background: var(--nn-ma-bg-alt);
+	border-radius: 10px;
+	padding: 13px;
+	text-align: center;
+	animation: nn-hero-meta-ads-fade-up 0.6s ease both;
+}
+
+.nn-hero-meta-ads .fbk:nth-child(1) {
+	animation-delay: 0.14s;
+}
+
+.nn-hero-meta-ads .fbk:nth-child(2) {
+	animation-delay: 0.24s;
+}
+
+.nn-hero-meta-ads .fbk:nth-child(3) {
+	animation-delay: 0.34s;
+}
+
+.nn-hero-meta-ads .fbk b {
+	display: block;
+	font-family: var(--nn-font-heading, inherit);
+	font-size: 1.35rem;
+	font-weight: 800;
+	color: var(--nn-ma-green);
+}
+
+.nn-hero-meta-ads .fbk i {
+	font-style: normal;
+	font-size: 0.72rem;
+	color: var(--nn-ma-text-light);
+}
+
+.nn-hero-meta-ads .fb-cap {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-ma-text-light);
+	text-align: center;
+	padding: 12px 22px 14px;
+}
+
+@keyframes nn-hero-meta-ads-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nn-hero-meta-ads .fb-ad,
+	.nn-hero-meta-ads .fbk {
+		animation: none;
+	}
+}
+
+@media (max-width: 540px) {
+	.nn-hero-meta-ads .fb-kpis {
+		grid-template-columns: 1fr;
+	}
+}

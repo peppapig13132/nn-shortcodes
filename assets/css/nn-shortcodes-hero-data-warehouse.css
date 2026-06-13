@@ -1,0 +1,127 @@
+/**
+ * NN Hero Data Warehouse — sources → BigQuery → outputs pipeline mock.
+ */
+
+.nn-hero-data-warehouse {
+	--nn-dw-bg: var(--nn-color-bg, #fff);
+	--nn-dw-bg-alt: var(--nn-color-bg-alt, #eff4f1);
+	--nn-dw-border: var(--nn-color-border, #e6e8ea);
+	--nn-dw-primary: var(--nn-color-primary, #050505);
+	--nn-dw-text-light: var(--nn-color-text-light, #7f868d);
+	--nn-dw-green: var(--nn-color-green, #277d59);
+	--nn-dw-green-dark: var(--nn-color-green-dark, #1c593f);
+	--nn-dw-green-light: var(--nn-color-green-light, #30996d);
+	--nn-dw-shadow-md: 0 6px 14px rgb(5 5 5 / 0.04), 0 18px 40px rgb(5 5 5 / 0.07);
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 42.9375rem;
+	margin-inline: auto;
+	font-family: var(--nn-font-body, system-ui, -apple-system, sans-serif);
+	isolation: isolate;
+}
+
+.nn-hero-data-warehouse *,
+.nn-hero-data-warehouse *::before,
+.nn-hero-data-warehouse *::after {
+	box-sizing: border-box;
+}
+
+.nn-hero-data-warehouse .dwmock {
+	background: var(--nn-dw-bg);
+	border: 1px solid var(--nn-dw-border);
+	border-radius: 16px;
+	box-shadow: var(--nn-dw-shadow-md);
+	overflow: hidden;
+}
+
+.nn-hero-data-warehouse .dw-bar {
+	display: flex;
+	gap: 7px;
+	padding: 14px 16px;
+	background: linear-gradient(90deg, var(--nn-dw-green-dark), var(--nn-dw-green-light));
+}
+
+.nn-hero-data-warehouse .dw-bar span {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: rgb(255 255 255 / 0.55);
+}
+
+.nn-hero-data-warehouse .dw-body {
+	padding: 24px;
+	text-align: center;
+}
+
+.nn-hero-data-warehouse .dw-lab {
+	font-size: 0.64rem;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: var(--nn-dw-text-light);
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.nn-hero-data-warehouse .dw-srcs,
+.nn-hero-data-warehouse .dw-outs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+.nn-hero-data-warehouse .dw-chip {
+	background: var(--nn-dw-bg-alt);
+	border: 1px solid var(--nn-dw-border);
+	border-radius: 8px;
+	padding: 7px 11px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: var(--nn-dw-primary);
+}
+
+.nn-hero-data-warehouse .dw-arrow {
+	color: var(--nn-dw-green);
+	font-size: 1.4rem;
+	line-height: 1;
+	margin: 12px 0;
+	font-weight: 800;
+}
+
+.nn-hero-data-warehouse .dw-core {
+	background: linear-gradient(135deg, var(--nn-dw-green-dark), var(--nn-dw-green-light));
+	color: #fff;
+	border-radius: 12px;
+	padding: 16px;
+	font-family: var(--nn-font-heading, inherit);
+	font-weight: 800;
+	font-size: 1.02rem;
+}
+
+.nn-hero-data-warehouse .dw-core small {
+	display: block;
+	font-family: var(--nn-font-body, inherit);
+	font-weight: 600;
+	font-size: 0.74rem;
+	opacity: 0.85;
+	margin-top: 3px;
+}
+
+.nn-hero-data-warehouse .dw-out {
+	background: rgb(39 125 89 / 0.1);
+	border: 1px solid rgb(39 125 89 / 0.22);
+	border-radius: 8px;
+	padding: 7px 11px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: var(--nn-dw-green-dark);
+}
+
+.nn-hero-data-warehouse .dw-cap {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--nn-dw-text-light);
+	text-align: center;
+	padding: 14px 22px;
+}
